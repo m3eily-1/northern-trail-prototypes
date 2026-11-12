@@ -1,0 +1,150 @@
+/* Tours and stays: plain webook listings. Square photo, small "type · date" line, title,
+   place, price; the whole card is the link. Square corners (brand rule), webook's dark page. */
+
+.bk { padding-block: var(--nt-s9) 0; background: var(--deep); color: var(--nt-cream); font-family: var(--nt-text); }
+.bk--stays { padding-block: var(--nt-s9); }
+.bk ul { margin: 0; padding: 0; list-style: none; }
+.bk h2, .bk p { margin: 0; }
+.bk [hidden] { display: none !important; }
+
+.bk__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--nt-s5);
+  margin-bottom: var(--nt-s6);
+  padding-bottom: var(--nt-s5);
+  border-bottom: 1px solid var(--line);
+}
+.bk__titles { display: flex; flex-direction: column; gap: var(--nt-s2); min-width: 0; }
+.bk__title { font-family: var(--nt-display); font-weight: 700; font-size: clamp(28px, 3vw, 40px); line-height: 1.15; }
+html[lang='ar'] .bk__title { line-height: 1.5; }
+.bk__sub { font-size: 16px; line-height: 1.5; color: var(--cream-64); }
+.bk__count { flex: none; font-size: 14px; line-height: 1.5; color: var(--cream-64); font-variant-numeric: tabular-nums; }
+
+.bk__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--nt-s7) var(--nt-s5); }
+.bk__item { min-width: 0; }
+
+.bk-card { position: relative; display: flex; flex-direction: column; color: inherit; text-decoration: none; }
+.bk-card__media { position: relative; display: block; aspect-ratio: 1; overflow: hidden; margin-bottom: var(--nt-s4); background: var(--deep-2); }
+.bk-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
+.bk-card__meta { font-size: 13px; line-height: 1.5; color: var(--cream-64); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bk-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  height: 2.8em;
+  margin-top: var(--nt-s1);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--nt-cream);
+}
+html[lang='ar'] .bk-card__title { line-height: 1.6; height: 3.2em; }
+.bk-card__place { margin-top: var(--nt-s2); font-size: 14px; line-height: 1.5; color: var(--cream-64); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bk-card__price { margin-top: var(--nt-s1); min-height: 1.5em; font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--nt-cream); }
+.bk-card__note { display: inline-flex; align-items: center; gap: var(--nt-s2); margin-top: var(--nt-s1); font-size: 13px; line-height: 1.5; color: var(--cream-64); }
+.bk-card__note i { flex: none; width: 8px; height: 8px; background: var(--nt-sand); }
+.bk-card__go {
+  position: absolute;
+  top: var(--nt-s3);
+  inset-inline-end: var(--nt-s3);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--nt-cream);
+  color: var(--nt-sand-dark);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s, transform 0.4s var(--ease-out);
+}
+.bk-card__go svg { width: 16px; height: 16px; }
+html[dir='rtl'] .bk-card__go .nt-flip { transform: scaleX(-1); }
+a.bk-card:focus-visible { outline: 2px solid var(--nt-cream); outline-offset: 4px; }
+a.bk-card:focus-visible .bk-card__go { opacity: 1; transform: none; }
+@media (hover: hover) {
+  a.bk-card:hover .bk-card__media img { transform: scale(1.05); }
+  a.bk-card:hover .bk-card__go { opacity: 1; transform: none; }
+  a.bk-card:hover .bk-card__title { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+}
+
+.bk__more { display: flex; justify-content: center; margin-top: var(--nt-s7); }
+.bk__btn {
+  min-height: 48px;
+  padding: 0 var(--nt-s6);
+  border: 1px solid var(--cream-64);
+  background: none;
+  color: var(--nt-cream);
+  font-family: var(--nt-display);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+@media (hover: hover) {
+  .bk__btn:hover { background: var(--nt-cream); border-color: var(--nt-cream); color: var(--nt-sand-dark); }
+}
+.bk__btn:active { transform: scale(0.97); }
+
+/* rise in as the grid arrives */
+.can-rise .bk__item { transition: opacity 0.7s var(--ease-out), transform 0.9s var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
+.can-rise .bk__grid:not(.is-in) .bk__item { opacity: 0; transform: translateY(24px); }
+
+@media (max-width: 1100px) {
+  .bk__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .bk { padding-block: var(--nt-s8) 0; }
+  .bk--stays { padding-block: var(--nt-s8); }
+  .bk__head { flex-direction: column; align-items: flex-start; gap: var(--nt-s3); margin-bottom: var(--nt-s5); }
+  .bk__sub { font-size: 15px; }
+  .bk__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nt-s6) var(--nt-s3); }
+  .bk-card__media { margin-bottom: var(--nt-s3); }
+  .bk-card__title { font-size: 15px; }
+  .bk-card__meta, .bk-card__note { font-size: 12px; }
+  .bk-card__place { font-size: 13px; }
+  .bk-card__price { font-size: 14px; }
+  .bk-card__go { display: none; }
+}
+
+/* filters: webook's pill row, squared */
+.bk-chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--nt-s3) var(--nt-s5); margin-bottom: var(--nt-s6); }
+.bk-chips__group { display: flex; flex-wrap: wrap; gap: var(--nt-s2); }
+.bk-chips__group + .bk-chips__group { padding-inline-start: var(--nt-s5); border-inline-start: 1px solid var(--line); }
+.bk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nt-s2);
+  min-height: 44px;
+  padding: 0 var(--nt-s4);
+  border: 1px solid var(--line);
+  background: rgba(255, 245, 200, 0.06);
+  color: var(--nt-cream);
+  font-family: var(--nt-text);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+.bk-chip b { font-weight: 600; font-size: 12px; color: var(--cream-64); font-variant-numeric: tabular-nums; }
+.bk-chip[aria-pressed='true'] { background: var(--nt-cream); border-color: var(--nt-cream); color: var(--nt-sand-dark); }
+.bk-chip[aria-pressed='true'] b { color: var(--nt-sand-dark); }
+.bk-chip.is-zero:not([aria-pressed='true']) { opacity: 0.4; }
+@media (hover: hover) { .bk-chip:not([aria-pressed='true']):hover { border-color: var(--cream-64); background: rgba(255, 245, 200, 0.12); } }
+.bk-chip:active { transform: scale(0.97); }
+.bk__empty { margin-bottom: var(--nt-s6); font-size: 16px; color: var(--cream-80); }
+.bk__clear { margin-inline-start: var(--nt-s2); padding: 0; border: 0; background: none; color: var(--nt-cream); font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; min-height: 44px; }
+@media (max-width: 767px) {
+  .bk-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--nt-gutter) * -1); padding-inline: var(--nt-gutter); margin-bottom: var(--nt-s5); }
+  .bk-chips::-webkit-scrollbar { display: none; }
+  .bk-chips__group { flex-wrap: nowrap; }
+}
+
+/* hotels: even, tight text under the photo (title takes only the lines it needs) */
+.bk--stays .bk-card__title,
+html[lang='ar'] .bk--stays .bk-card__title { height: auto; margin-top: var(--nt-s1); }
+.bk--stays .bk-card__place { margin-top: var(--nt-s1); }
+.bk--stays .bk-card__price { margin-top: var(--nt-s2); min-height: 0; }

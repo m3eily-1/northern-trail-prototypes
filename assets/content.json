@@ -1,0 +1,1529 @@
+{
+ "hero": {
+  "title": {
+   "en": "A road trip spanning 1,200 km",
+   "ar": "رحلة برية على امتداد 1,200 كم"
+  },
+  "sub": {
+   "en": "From Diriyah to the rock art of Jubbah, through Riyadh, Qassim and Hail.",
+   "ar": "من الدرعية إلى نقوش جُبّة الصخرية، مرورًا بالرياض والقصيم وحائل."
+  },
+  "cta": {
+   "en": "Explore the stops",
+   "ar": "استكشف المحطات"
+  },
+  "tagline": "شمالٍ يشمل"
+ },
+ "intro": {
+  "title": {
+   "en": "What is the Northern Trail?",
+   "ar": "ما هو مسار الشمال؟"
+  },
+  "body": {
+   "en": "The Northern Trail is a 1,200 km road trip connecting Riyadh and its surrounding areas to Qassim and Hail, with stops featuring historical landmarks, natural landscapes, and local experiences.",
+   "ar": "رحلة برية تمتد لنحو 1,200 كم، تربط بين الرياض ومحافظاتها والقصيم وصولًا إلى حائل، عبر محطات متنوعة تجمع بين المعالم التاريخية والطبيعة والتجارب المحلية."
+  },
+  "stats": [
+   {
+    "value": "1,200",
+    "unit": {
+     "en": "km",
+     "ar": "كم"
+    },
+    "label": {
+     "en": "Of open road",
+     "ar": "طول الرحلة"
+    }
+   },
+   {
+    "value": "16",
+    "unit": null,
+    "label": {
+     "en": "Stops along the way",
+     "ar": "محطة على الطريق"
+    }
+   },
+   {
+    "value": "3",
+    "unit": null,
+    "label": {
+     "en": "Regions: Riyadh, Qassim and Hail",
+     "ar": "مناطق: الرياض والقصيم وحائل"
+    }
+   },
+   {
+    "value": "13.5",
+    "unit": {
+     "en": "h",
+     "ar": "ساعة"
+    },
+    "label": {
+     "en": "Of driving in total, roughly",
+     "ar": "من القيادة تقريبًا"
+    }
+   }
+  ]
+ },
+ "pillars": [
+  {
+   "key": "heritage",
+   "name": {
+    "en": "Heritage and culture",
+    "ar": "التراث والثقافة"
+   },
+   "line": {
+    "en": "Where the spirit of the North lives on",
+    "ar": "حيث تبقى روح الشمال حاضرة"
+   },
+   "art": "assets/img/icon-4.png",
+   "color": "#824628"
+  },
+  {
+   "key": "farms",
+   "name": {
+    "en": "Farms and countryside",
+    "ar": "الزراعة والريف"
+   },
+   "line": {
+    "en": "Where the land tells its story through its harvest",
+    "ar": "حيث تروي الأرض حكايتها بخيراتها"
+   },
+   "art": "assets/img/icon-2.png",
+   "color": "#5a6432"
+  },
+  {
+   "key": "desert",
+   "name": {
+    "en": "Desert and adventure",
+    "ar": "الصحراء والمغامرة"
+   },
+   "line": {
+    "en": "Where the horizon stretches and the story begins",
+    "ar": "حيث يمتد الأفق وتبدأ الحكاية"
+   },
+   "art": "assets/img/icon-1.png",
+   "color": "#a06eb4"
+  }
+ ],
+ "regions": [
+  {
+   "key": "riyadh",
+   "name": {
+    "en": "Riyadh region",
+    "ar": "منطقة الرياض"
+   },
+   "count": {
+    "en": "8 stops",
+    "ar": "8 محطات"
+   }
+  },
+  {
+   "key": "qassim",
+   "name": {
+    "en": "Qassim region",
+    "ar": "منطقة القصيم"
+   },
+   "count": {
+    "en": "6 stops",
+    "ar": "6 محطات"
+   }
+  },
+  {
+   "key": "hail",
+   "name": {
+    "en": "Hail region",
+    "ar": "منطقة حائل"
+   },
+   "count": {
+    "en": "2 stops",
+    "ar": "محطتان"
+   }
+  }
+ ],
+ "stops": [
+  {
+   "n": 1,
+   "key": "riyadh",
+   "name": {
+    "en": "Riyadh",
+    "ar": "الرياض"
+   },
+   "lng": 46.575,
+   "lat": 24.734,
+   "region": "riyadh",
+   "drive": null,
+   "driveMinutes": 0,
+   "desc": {
+    "en": "The Northern Trail begins in Diriyah, between At-Turaif District and Bujairi Terrace, amid historical landmarks, Najdi architecture, and diverse experiences.",
+    "ar": "يبدأ مسار الشمال من الدرعية بين حي الطريف ومطل البجيري، وسط المعالم التاريخية وتفاصيل العمارة النجدية والتجارب المتنوعة."
+   },
+   "photo": "assets/img/stop-riyadh.jpg",
+   "sticker": null
+  },
+  {
+   "n": 2,
+   "key": "thadiq",
+   "name": {
+    "en": "Thadiq",
+    "ar": "ثادق"
+   },
+   "lng": 45.866,
+   "lat": 25.287,
+   "region": "riyadh",
+   "drive": {
+    "en": "1 h 33 min",
+    "ar": "ساعة و33 دقيقة"
+   },
+   "driveMinutes": 93,
+   "desc": {
+    "en": "After an hour and 33 minutes, you reach Thadiq, home to historical landmarks, archaeological sites, and landscapes shaped over millions of years.",
+    "ar": "بعد ساعة و33 دقيقة من القيادة تصل ثادق، حيث المعالم التاريخية والمواقع الأثرية وطبيعة تمتد عبر ملايين السنين."
+   },
+   "photo": "assets/img/stop-thadiq.jpg",
+   "sticker": "assets/img/sticker-thadiq.webp"
+  },
+  {
+   "n": 3,
+   "key": "al-qasab",
+   "name": {
+    "en": "Al Qasab",
+    "ar": "القصب"
+   },
+   "lng": 45.528,
+   "lat": 25.296,
+   "region": "riyadh",
+   "drive": {
+    "en": "37 min",
+    "ar": "37 دقيقة"
+   },
+   "driveMinutes": 37,
+   "desc": {
+    "en": "After 37 minutes, you reach Al Qasab, whose history is tied to salt production, a part of its identity and everyday life.",
+    "ar": "بعد 37 دقيقة تصل القصب، التي ارتبط تاريخها بإنتاج الملح حتى أصبح جزءًا من هويتها وحياتها اليومية."
+   },
+   "photo": "assets/img/stop-al-qasab.jpg",
+   "sticker": null
+  },
+  {
+   "n": 4,
+   "key": "shaqra",
+   "name": {
+    "en": "Shaqra",
+    "ar": "شقراء"
+   },
+   "lng": 45.252,
+   "lat": 25.249,
+   "region": "riyadh",
+   "drive": {
+    "en": "31 min",
+    "ar": "31 دقيقة"
+   },
+   "driveMinutes": 31,
+   "desc": {
+    "en": "After 31 minutes, Shaqra's old houses and markets take you on a tour that reflects its history and its long link to trade.",
+    "ar": "بعد 31 دقيقة تأخذك بيوت شقراء القديمة وأسواقها في جولة تعكس تاريخها وارتباطها بالتجارة."
+   },
+   "photo": "assets/img/stop-shaqra.jpg",
+   "sticker": null
+  },
+  {
+   "n": 5,
+   "key": "ushaiqer",
+   "name": {
+    "en": "Ushaiqer",
+    "ar": "أشيقر"
+   },
+   "lng": 45.188,
+   "lat": 25.34,
+   "region": "riyadh",
+   "drive": {
+    "en": "17 min",
+    "ar": "17 دقيقة"
+   },
+   "driveMinutes": 17,
+   "desc": {
+    "en": "After 17 minutes, Ushaiqer's pathways, houses, and heritage mosques take you through the details of old Najdi life.",
+    "ar": "بعد 17 دقيقة تأخذك ممرات أشيقر وبيوتها ومساجدها التراثية بين تفاصيل الحياة النجدية القديمة."
+   },
+   "photo": "assets/img/stop-ushaiqer.jpg",
+   "sticker": null
+  },
+  {
+   "n": 6,
+   "key": "al-majmaah",
+   "name": {
+    "en": "Al Majma'ah",
+    "ar": "المجمعة"
+   },
+   "lng": 45.346,
+   "lat": 25.904,
+   "region": "riyadh",
+   "drive": {
+    "en": "45 min",
+    "ar": "45 دقيقة"
+   },
+   "driveMinutes": 45,
+   "desc": {
+    "en": "After 45 minutes, a new chapter begins among Sudair's historical landmarks, architecture, and regional identity.",
+    "ar": "بعد 45 دقيقة تبدأ مرحلة جديدة بين معالم سدير التاريخية وتفاصيلها العمرانية وهوية المنطقة."
+   },
+   "photo": "assets/img/stop-al-majmaah.jpg",
+   "sticker": null
+  },
+  {
+   "n": 7,
+   "key": "al-ghat",
+   "name": {
+    "en": "Al Ghat",
+    "ar": "الغاط"
+   },
+   "lng": 44.959,
+   "lat": 26.027,
+   "region": "riyadh",
+   "drive": {
+    "en": "28 min",
+    "ar": "28 دقيقة"
+   },
+   "driveMinutes": 28,
+   "desc": {
+    "en": "Al Ghat is 28 minutes away, where heritage houses and farms stretch between the valley and the mountains, joining old architecture with nature.",
+    "ar": "تبعد الغاط 28 دقيقة، وتمتد فيها البيوت التراثية والمزارع بين الوادي والجبال، وتجمع العمارة القديمة بالطبيعة."
+   },
+   "photo": "assets/img/stop-al-ghat.jpg",
+   "sticker": null
+  },
+  {
+   "n": 8,
+   "key": "al-zulfi",
+   "name": {
+    "en": "Al Zulfi",
+    "ar": "الزلفي"
+   },
+   "lng": 44.815,
+   "lat": 26.299,
+   "region": "riyadh",
+   "drive": {
+    "en": "26 min",
+    "ar": "26 دقيقة"
+   },
+   "driveMinutes": 26,
+   "desc": {
+    "en": "Al Zulfi is 26 minutes away, where farms, oases, and sand dunes stretch across green nature and diverse terrain.",
+    "ar": "26 دقيقة تفصلك عن الزلفي، حيث تمتد المزارع والواحات والكثبان الرملية في طبيعة خضراء وتضاريس متنوعة."
+   },
+   "photo": "assets/img/stop-al-zulfi.jpg",
+   "sticker": null
+  },
+  {
+   "n": 9,
+   "key": "al-mithnab",
+   "name": {
+    "en": "Al Mithnab",
+    "ar": "المذنب"
+   },
+   "lng": 44.222,
+   "lat": 25.861,
+   "region": "qassim",
+   "drive": {
+    "en": "1 h 29 min",
+    "ar": "ساعة و29 دقيقة"
+   },
+   "driveMinutes": 89,
+   "desc": {
+    "en": "After a 1 hour and 29 minute drive, Al Mithnab's farms, palm trees, and local products reveal its agricultural life.",
+    "ar": "بعد ساعة و29 دقيقة من القيادة تظهر ملامح الحياة الزراعية في المذنب بين المزارع وأشجار النخيل والمنتجات المحلية."
+   },
+   "photo": "assets/img/stop-al-mithnab.jpg",
+   "sticker": null
+  },
+  {
+   "n": 10,
+   "key": "unaizah",
+   "name": {
+    "en": "Unaizah",
+    "ar": "عنيزة"
+   },
+   "lng": 43.994,
+   "lat": 26.084,
+   "region": "qassim",
+   "drive": {
+    "en": "35 min",
+    "ar": "35 دقيقة"
+   },
+   "driveMinutes": 35,
+   "desc": {
+    "en": "Unaizah is 35 minutes away, with experiences ranging from restaurants and cafés to local gathering spots and attractions.",
+    "ar": "تتنوع التجارب في عنيزة بين المطاعم والمقاهي والجلسات والوجهات المحلية، وهي على بُعد 35 دقيقة."
+   },
+   "photo": "assets/img/stop-unaizah.jpg",
+   "sticker": "assets/img/sticker-qassim.webp"
+  },
+  {
+   "n": 11,
+   "key": "ar-rass",
+   "name": {
+    "en": "Ar Rass",
+    "ar": "الرس"
+   },
+   "lng": 43.497,
+   "lat": 25.869,
+   "region": "qassim",
+   "drive": {
+    "en": "52 min",
+    "ar": "52 دقيقة"
+   },
+   "driveMinutes": 52,
+   "desc": {
+    "en": "Ar Rass is 52 minutes away, where historical landmarks reveal part of the city's history, most notably Ar Rass Tower.",
+    "ar": "تفصلك 52 دقيقة عن الرس، حيث تأخذك معالمها التاريخية إلى جانب من تاريخ المدينة، أبرزها برج الرس."
+   },
+   "photo": "assets/img/stop-ar-rass.jpg",
+   "sticker": null
+  },
+  {
+   "n": 12,
+   "key": "buraydah",
+   "name": {
+    "en": "Buraydah",
+    "ar": "بريدة"
+   },
+   "lng": 43.975,
+   "lat": 26.326,
+   "region": "qassim",
+   "drive": {
+    "en": "1 h 7 min",
+    "ar": "ساعة و7 دقائق"
+   },
+   "driveMinutes": 67,
+   "desc": {
+    "en": "After an hour and 7 minutes, you reach Buraydah, where its old markets tell part of its history and remain part of the city's identity.",
+    "ar": "بعد ساعة و7 دقائق تصل إلى بريدة، حيث تحكي أسواقها القديمة جانبًا من تاريخها، وما زالت جزءًا من هوية المدينة."
+   },
+   "photo": "assets/img/stop-buraydah.jpg",
+   "sticker": "assets/img/sticker-buraydah.webp"
+  },
+  {
+   "n": 13,
+   "key": "al-bukayriyah",
+   "name": {
+    "en": "Al Bukayriyah",
+    "ar": "البكيرية"
+   },
+   "lng": 43.659,
+   "lat": 26.139,
+   "region": "qassim",
+   "drive": {
+    "en": "31 min",
+    "ar": "31 دقيقة"
+   },
+   "driveMinutes": 31,
+   "desc": {
+    "en": "You reach Al Bukayriyah in 31 minutes, with experiences ranging from heritage landmarks to local community events.",
+    "ar": "تصل البكيرية في 31 دقيقة، وتمتد التجربة فيها من المعالم التراثية إلى فعاليات المجتمع المحلي."
+   },
+   "photo": "assets/img/stop-al-bukayriyah.jpg",
+   "sticker": null
+  },
+  {
+   "n": 14,
+   "key": "uyun-al-jiwa",
+   "name": {
+    "en": "Uyun Al Jawa",
+    "ar": "عيون الجواء"
+   },
+   "lng": 43.68,
+   "lat": 26.505,
+   "region": "qassim",
+   "drive": {
+    "en": "46 min",
+    "ar": "46 دقيقة"
+   },
+   "driveMinutes": 46,
+   "desc": {
+    "en": "46 minutes away, Uyun Al Jawa is linked to the story of Antarah and Abla, where poetry, horsemanship, and regional history meet.",
+    "ar": "على بُعد 46 دقيقة تصل إلى عيون الجواء المرتبطة بقصة عنترة وعبلة، حيث الشعر والفروسية وتاريخ المنطقة."
+   },
+   "photo": "assets/img/stop-uyun-al-jiwa.jpg",
+   "sticker": null
+  },
+  {
+   "n": 15,
+   "key": "hail",
+   "name": {
+    "en": "Hail",
+    "ar": "حائل"
+   },
+   "lng": 41.69,
+   "lat": 27.521,
+   "region": "hail",
+   "drive": {
+    "en": "2 h 10 min",
+    "ar": "ساعتان و10 دقائق"
+   },
+   "driveMinutes": 130,
+   "desc": {
+    "en": "Hail is 2 hours and 10 minutes away, where historical landmarks meet mountain landscapes, from the Aja and Salma mountains to A'arif Fort.",
+    "ar": "تفصلك ساعتان و10 دقائق عن حائل، حيث تجتمع المعالم التاريخية والطبيعة الجبلية، من جبلي أجا وسلمى إلى قلعة أعيرف."
+   },
+   "photo": "assets/img/stop-hail.jpg",
+   "sticker": "assets/img/sticker-hail.webp"
+  },
+  {
+   "n": 16,
+   "key": "jubbah",
+   "name": {
+    "en": "Jubbah",
+    "ar": "جُبّة"
+   },
+   "lng": 40.938,
+   "lat": 28.012,
+   "region": "hail",
+   "drive": {
+    "en": "1 h 25 min",
+    "ar": "ساعة و25 دقيقة"
+   },
+   "driveMinutes": 85,
+   "desc": {
+    "en": "End your journey after 1 hour and 25 minutes in Jubbah, where rock carvings and drawings document human and animal life from thousands of years ago.",
+    "ar": "اختتم رحلتك بعد ساعة و25 دقيقة في جُبّة، حيث نقوش ورسوم صخرية توثق حياة الإنسان والحيوان قبل آلاف السنين."
+   },
+   "photo": "assets/img/stop-jubbah.jpg",
+   "sticker": "assets/img/sticker-jubbah.webp"
+  }
+ ],
+ "tips": [
+  {
+   "icon": "plane",
+   "title": {
+    "en": "Getting there",
+    "ar": "الوصول"
+   },
+   "text": {
+    "en": "The Northern Trail begins in Diriyah, in Riyadh. Reach Riyadh by air via King Khalid International Airport or by train via SAR, then continue along the trail by car.",
+    "ar": "يبدأ مسار الشمال من الدرعية في الرياض. يمكنك الوصول إلى الرياض جوًا عبر مطار الملك خالد الدولي أو بالقطار عبر سار، ثم مواصلة الرحلة بالسيارة."
+   }
+  },
+  {
+   "icon": "temperature",
+   "title": {
+    "en": "Pack for the weather",
+    "ar": "الطقس"
+   },
+   "text": {
+    "en": "Winter can be cold, especially early in the morning and in the evening, so bring warm clothing.",
+    "ar": "قد يكون الطقس باردًا خلال الشتاء، خاصةً في الصباح الباكر والمساء، لذلك يُنصح باصطحاب ملابس دافئة."
+   }
+  },
+  {
+   "icon": "route",
+   "title": {
+    "en": "Plan your stops",
+    "ar": "خطط لمحطاتك"
+   },
+   "text": {
+    "en": "Plan your stops in advance and allow enough time between them. Drives range from 17 minutes to 2 hours and 10 minutes.",
+    "ar": "رتّب محطاتك مسبقًا، واترك وقتًا كافيًا للتنقل بينها، إذ تتراوح مدة القيادة بين المحطات من 17 دقيقة إلى ساعتين و10 دقائق."
+   }
+  },
+  {
+   "icon": "clock",
+   "title": {
+    "en": "Check opening hours",
+    "ar": "مواعيد العمل"
+   },
+   "text": {
+    "en": "Check the opening hours of sites before visiting, especially on weekends and during peak seasons.",
+    "ar": "تحقق من مواعيد عمل المواقع قبل التوجه إليها، خاصةً خلال عطلات نهاية الأسبوع والمواسم."
+   }
+  },
+  {
+   "icon": "fuel",
+   "title": {
+    "en": "Fuel up",
+    "ar": "الطريق والوقود"
+   },
+   "text": {
+    "en": "Check road conditions and fuel before the longer drives, such as the routes to Thadiq, Al Mithnab and Jubbah.",
+    "ar": "تأكد من حالة الطريق والوقود قبل المراحل الأطول من الرحلة، مثل الطريق إلى ثادق والمذنب وجُبّة."
+   }
+  }
+ ],
+ "faq": [
+  {
+   "q": {
+    "en": "How can I reach the Northern Trail?",
+    "ar": "كيف يمكن الوصول إلى مسار الشمال؟"
+   },
+   "a": {
+    "en": "The Northern Trail begins in Diriyah, in Riyadh. You can reach Riyadh by air via King Khalid International Airport, or by train via SAR for travelers coming from the north and east, then continue by car along the trail.",
+    "ar": "يبدأ مسار الشمال من الدرعية في الرياض. يمكنك الوصول إلى الرياض جوًا عبر مطار الملك خالد الدولي، أو بالقطار عبر سار للقادمين من الشمال والشرق، ثم مواصلة الرحلة بالسيارة على امتداد المسار."
+   }
+  },
+  {
+   "q": {
+    "en": "How long is the Northern Trail?",
+    "ar": "كم يبلغ طول مسار الشمال؟"
+   },
+   "a": {
+    "en": "The Northern Trail is a road trip of about 1,200 km, connecting Riyadh and its surrounding areas to Qassim and Hail, and ending in Jubbah.",
+    "ar": "مسار الشمال رحلة برية تمتد لنحو 1,200 كم، تربط الرياض ومحافظاتها بالقصيم وحائل، وتنتهي في جُبّة."
+   }
+  },
+  {
+   "q": {
+    "en": "What are the stops on the Northern Trail?",
+    "ar": "ما هي محطات مسار الشمال؟"
+   },
+   "a": {
+    "en": "The Northern Trail has 16 stops: Riyadh, Thadiq, Al Qasab, Shaqra, Ushaiqer, Al Majma'ah, Al Ghat, Al Zulfi, Al Mithnab, Unaizah, Ar Rass, Buraydah, Al Bukayriyah, Uyun Al Jawa, Hail and Jubbah.",
+    "ar": "يضم مسار الشمال 16 محطة: الرياض، ثادق، القصب، شقراء، أشيقر، المجمعة، الغاط، الزلفي، المذنب، عنيزة، الرس، بريدة، البكيرية، عيون الجواء، حائل، وجُبّة."
+   }
+  },
+  {
+   "q": {
+    "en": "What is the best way to get around the Northern Trail?",
+    "ar": "ما أفضل وسيلة للتنقل على مسار الشمال؟"
+   },
+   "a": {
+    "en": "A car is one of the best ways to travel along the Northern Trail, especially for moving between stops and visiting landmarks and natural sites outside the cities.",
+    "ar": "السيارة من أفضل وسائل التنقل على مسار الشمال، خاصةً للتنقل بين المحطات وزيارة المعالم والمواقع الطبيعية خارج المدن."
+   }
+  },
+  {
+   "q": {
+    "en": "How long does it take to drive the whole Northern Trail?",
+    "ar": "كم تستغرق القيادة على مسار الشمال كاملًا؟"
+   },
+   "a": {
+    "en": "Adding up the drive times between all stops comes to roughly 13.5 hours of driving, so it is best to spread the trail over several days to enjoy each stop along the way.",
+    "ar": "يبلغ مجموع أوقات القيادة بين المحطات نحو 13.5 ساعة، لذلك يُفضّل توزيع الرحلة على عدة أيام للاستمتاع بكل محطة."
+   }
+  },
+  {
+   "q": {
+    "en": "What can I see and do along the Northern Trail?",
+    "ar": "ما أبرز ما يمكن زيارته على مسار الشمال؟"
+   },
+   "a": {
+    "en": "The trail brings together historical landmarks such as At-Turaif District in Diriyah, heritage architecture in Ushaiqer and Al Ghat, natural landscapes up to the mountains of Hail, and local experiences such as farm visits in Al Mithnab and the old markets of Buraydah.",
+    "ar": "يجمع المسار بين معالم تاريخية مثل حي الطريف في الدرعية، والعمارة التراثية في أشيقر والغاط، والطبيعة وصولًا إلى جبال حائل، وتجارب محلية مثل زيارة المزارع في المذنب والأسواق القديمة في بريدة."
+   }
+  },
+  {
+   "q": {
+    "en": "Where does the Northern Trail end?",
+    "ar": "أين ينتهي مسار الشمال؟"
+   },
+   "a": {
+    "en": "The Northern Trail ends in Jubbah, where rock carvings and drawings document human and animal life from thousands of years ago.",
+    "ar": "ينتهي مسار الشمال في جُبّة، حيث النقوش والرسوم الصخرية التي توثق حياة الإنسان والحيوان قبل آلاف السنين."
+   }
+  }
+ ],
+ "closing": {
+  "line": {
+   "en": "A journey where you discover more than a place: the variety, spirit and authenticity of the North, in its land, its culture and the stories of its people.",
+   "ar": "رحلة لا تكتشف فيها مكانًا فحسب، بل تكتشف تنوع الشمال وروحه وأصالته؛ في أرضه، وفي ثقافته، وفي حكايات أهله."
+  }
+ },
+ "film": {
+  "desktop": "assets/video/hero-d.mp4",
+  "mobile": "assets/video/hero-m.mp4",
+  "poster": "assets/img/hero-poster.jpg",
+  "frames": [
+   "assets/img/film-0.jpg",
+   "assets/img/film-1.jpg",
+   "assets/img/film-2.jpg",
+   "assets/img/film-3.jpg",
+   "assets/img/film-4.jpg",
+   "assets/img/film-5.jpg",
+   "assets/img/film-6.jpg",
+   "assets/img/film-7.jpg"
+  ]
+ },
+ "stickers": {
+  "thadiq": "assets/img/sticker-thadiq.webp",
+  "buraydah": "assets/img/sticker-buraydah.webp",
+  "qassim": "assets/img/sticker-qassim.webp",
+  "hail": "assets/img/sticker-hail.webp",
+  "jubbah": "assets/img/sticker-jubbah.webp",
+  "salma": "assets/img/sticker-salma.webp"
+ },
+ "logo": {
+  "cream": "assets/svg/logo-cream.svg",
+  "dark": "assets/svg/logo-dark.svg",
+  "stickerPng": "assets/img/sticker-logo.png"
+ },
+ "tours": [
+  {
+   "slug": "riyadh-s-edge-of-the-world-tour-with-sunset-views-off-roading",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Edge of the World Tour from Riyadh",
+    "ar": "جولة حافة العالم في الرياض مع مناظر غروب الشمس والقيادة على الطرق الوعرة بسيارات جيب رانجلر 4*4 (رحلة خاصة)"
+   },
+   "until": {
+    "en": "Until 25 Mar 2027",
+    "ar": "حتى 25 مارس 2027"
+   },
+   "price": 460,
+   "organizer": "Global Travel Solutions",
+   "photo": "assets/img/tour-riyadh-s-edge-of-the-world-tour-with-sunset-view.jpg",
+   "photoIsStop": false,
+   "href": {
+    "en": "https://webook.com/en/SA/local/activities-adventures/experiences/riyadh-s-edge-of-the-world-tour-with-sunset-views-off-roading",
+    "ar": "https://webook.com/ar/SA/local/activities-adventures/experiences/riyadh-s-edge-of-the-world-tour-with-sunset-views-off-roading"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "riyadh-city-tour-private-experience",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Riyadh Heritage Tour - Diriyah, Masmak and More",
+    "ar": "جولة الرياض التراثية: الدرعية والمصمك والمزيد"
+   },
+   "until": {
+    "en": "Until 17 Feb 2027",
+    "ar": "حتى 17 فبراير 2027"
+   },
+   "price": 2990,
+   "organizer": "Deira Tours",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/riyadh-city-tour-private-experience",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/riyadh-city-tour-private-experience"
+   },
+   "duration": {
+    "en": "7 hours",
+    "ar": "7 ساعات"
+   },
+   "fullDay": true
+  },
+  {
+   "slug": "riyadh-heritage-culture-tour-museum-souk-masmak-diriyah-private-tour",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Full-Day Riyadh Heritage and Culture Tour",
+    "ar": "جولة الرياض التراثية والثقافية: المتاحف والأسواق والمصمك والدرعية (جولة خاصة)"
+   },
+   "until": {
+    "en": "Until 30 Mar 2027",
+    "ar": "حتى 30 مارس 2027"
+   },
+   "price": 1995,
+   "organizer": "Global Travel Solutions",
+   "photo": "assets/img/tour-riyadh-heritage-culture-tour-museum-souk-masmak-.jpg",
+   "photoIsStop": false,
+   "href": {
+    "en": "https://webook.com/en/SA/drh/experience/experiences/riyadh-heritage-culture-tour-museum-souk-masmak-diriyah-private-tour",
+    "ar": "https://webook.com/ar/SA/drh/experience/experiences/riyadh-heritage-culture-tour-museum-souk-masmak-diriyah-private-tour"
+   },
+   "duration": {
+    "en": "Full day",
+    "ar": "يوم كامل"
+   },
+   "fullDay": true
+  },
+  {
+   "slug": "riyadh-red-sand-dunes-camel-ride-quad-sandboarding-adventure",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Red Sand Dunes Desert Adventure from Riyadh",
+    "ar": "مغامرة الكثبان الحمراء في صحراء الرياض"
+   },
+   "until": {
+    "en": "Until 30 Dec 2026",
+    "ar": "حتى 30 ديسمبر 2026"
+   },
+   "price": 300,
+   "organizer": "Hala Riyadh Tours",
+   "photo": "assets/img/tour-alt-film-3.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experiences/riyadh-red-sand-dunes-camel-ride-quad-sandboarding-adventure",
+    "ar": "https://webook.com/ar/SA/RUH/experiences/riyadh-red-sand-dunes-camel-ride-quad-sandboarding-adventure"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "riyadh-4x4-desert-safari-dune-bashing-atv-quad-bikes-camel-ride-and-sandboarding",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Riyadh Desert Safari - Dunes, Quads and Camels",
+    "ar": "سفاري صحراء الرياض: كثبان ودبابات وجمال"
+   },
+   "until": {
+    "en": "Until 29 Dec 2026",
+    "ar": "حتى 29 ديسمبر 2026"
+   },
+   "price": 329,
+   "organizer": "Saudi Nomadic Tours",
+   "photo": "assets/img/tour-alt-film-4.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/riyadh-4x4-desert-safari-dune-bashing-atv-quad-bikes-camel-ride-and-sandboarding",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/riyadh-4x4-desert-safari-dune-bashing-atv-quad-bikes-camel-ride-and-sandboarding"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "riyadh-national-museum-souq-al-zal-guided-heritage-tour",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Riyadh Heritage Tour - National Museum and Souq Al Zal",
+    "ar": "جولة الرياض التراثية: المتحف الوطني وسوق الزل"
+   },
+   "until": {
+    "en": "Until 23 Jan 2027",
+    "ar": "حتى 23 يناير 2027"
+   },
+   "price": 615,
+   "organizer": "Desert Land",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/riyadh-national-museum-souq-al-zal-guided-heritage-tour",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/riyadh-national-museum-souq-al-zal-guided-heritage-tour"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "modern-riyadh-kafd-architecture-metro-street-food",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Riyadh Architecture and Heritage Tour by Metro",
+    "ar": "جولة العمارة والتراث في الرياض عبر المترو"
+   },
+   "until": {
+    "en": "Until 1 Feb 2027",
+    "ar": "حتى 1 فبراير 2027"
+   },
+   "price": 615,
+   "organizer": "Desert Land",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/modern-riyadh-kafd-architecture-metro-street-food",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/modern-riyadh-kafd-architecture-metro-street-food"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "riyadh-through-time-al-masmak-national-museum-black-gold",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Riyadh Through Time: Al Masmak, National Museum & Black Gold",
+    "ar": "الرياض عبر الزمن: المصمك والمتحف الوطني والذهب الأسود"
+   },
+   "until": {
+    "en": "Until 29 Nov 2026",
+    "ar": "حتى 29 نوفمبر 2026"
+   },
+   "price": 450,
+   "organizer": "Archinations",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/experiences/riyadh-through-time-al-masmak-national-museum-black-gold",
+    "ar": "https://webook.com/ar/SA/experiences/riyadh-through-time-al-masmak-national-museum-black-gold"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "horse-riding-at-riyadh-red-sand-dunes",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Beginner Horse Riding on the Dunes",
+    "ar": "رحلة شيقة في الرياض لركوب الخيل على رمال الصحراء"
+   },
+   "until": {
+    "en": "Until 6 Apr 2027",
+    "ar": "حتى 6 أبريل 2027"
+   },
+   "price": 275,
+   "organizer": "Global Travel Solutions",
+   "photo": "assets/img/tour-horse-riding-at-riyadh-red-sand-dunes.jpg",
+   "photoIsStop": false,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/horse-riding-at-riyadh-red-sand-dunes",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/horse-riding-at-riyadh-red-sand-dunes"
+   },
+   "duration": {
+    "en": "30 to 40 min",
+    "ar": "30 إلى 40 دقيقة"
+   },
+   "fullDay": false
+  },
+  {
+   "slug": "a-cultural-journey-through-riyadh-s-mosques",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "A Cultural Journey Through Riyadh's Mosques",
+    "ar": "رحلة ثقافية بين مساجد الرياض"
+   },
+   "until": {
+    "en": "Until 29 Nov 2026",
+    "ar": "حتى 29 نوفمبر 2026"
+   },
+   "price": 450,
+   "organizer": "Archinations",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/experiences/a-cultural-journey-through-riyadh-s-mosques",
+    "ar": "https://webook.com/ar/SA/experiences/a-cultural-journey-through-riyadh-s-mosques"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "old-riyadh-heritage-tour-up-to-3-pax",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Old Riyadh Heritage Tour - Private 7-8 Hour Journey",
+    "ar": "جولة الرياض القديمة التراثية: رحلة خاصة من 7 إلى 8 ساعات"
+   },
+   "until": {
+    "en": "Until 29 Jan 2027",
+    "ar": "حتى 29 يناير 2027"
+   },
+   "price": 2500,
+   "organizer": "Storm Adventures",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/old-riyadh-heritage-tour-up-to-3-pax",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/old-riyadh-heritage-tour-up-to-3-pax"
+   },
+   "duration": {
+    "en": "7 to 8 hours",
+    "ar": "7 إلى 8 ساعات"
+   },
+   "fullDay": true
+  },
+  {
+   "slug": "modern-riyadh-night-city-tour-up-to-3-pax",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Private Riyadh Night City Tour, 4-5 Hours",
+    "ar": "جولة ليلية خاصة في الرياض من 4 إلى 5 ساعات"
+   },
+   "until": {
+    "en": "Until 29 Jan 2027",
+    "ar": "حتى 29 يناير 2027"
+   },
+   "price": 2500,
+   "organizer": "Storm Adventures",
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/modern-riyadh-night-city-tour-up-to-3-pax",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/modern-riyadh-night-city-tour-up-to-3-pax"
+   },
+   "duration": {
+    "en": "4 to 5 hours",
+    "ar": "4 إلى 5 ساعات"
+   },
+   "fullDay": false
+  },
+  {
+   "slug": "private-riyadh-city-tour",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Riyadh Guided City Tour, Old Meets Modern",
+    "ar": "جولة خاصة في مدينة الرياض"
+   },
+   "until": {
+    "en": "Until 30 Nov 2026",
+    "ar": "حتى 30 نوفمبر 2026"
+   },
+   "price": 460,
+   "organizer": "Global Travel Solutions",
+   "photo": "assets/img/tour-private-riyadh-city-tour.jpg",
+   "photoIsStop": false,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/private-riyadh-city-tour",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/private-riyadh-city-tour"
+   },
+   "duration": {
+    "en": "4 to 5 hours",
+    "ar": "4 إلى 5 ساعات"
+   },
+   "fullDay": false
+  },
+  {
+   "slug": "boulevard-world-rs27",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Zone",
+    "ar": "وجهة"
+   },
+   "title": {
+    "en": "Boulevard World",
+    "ar": "بوليفارد وورلد"
+   },
+   "until": {
+    "en": "Until 5 May 2027",
+    "ar": "حتى 5 مايو 2027"
+   },
+   "price": 30,
+   "organizer": null,
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/activities-adventures/zones/boulevard-world-rs27",
+    "ar": "https://webook.com/ar/SA/RUH/activities-adventures/zones/boulevard-world-rs27"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "aldirah-park-rs27",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Zone",
+    "ar": "وجهة"
+   },
+   "title": {
+    "en": "AlDirah Park",
+    "ar": "حديقة الديرة"
+   },
+   "until": {
+    "en": "Until 6 Feb 2027",
+    "ar": "حتى 6 فبراير 2027"
+   },
+   "price": 0,
+   "organizer": null,
+   "photo": "assets/img/tour-alt-film-6.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/activities-adventures/zones/aldirah-park-rs27",
+    "ar": "https://webook.com/ar/SA/RUH/activities-adventures/zones/aldirah-park-rs27"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "the-venue-rs25",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Zone",
+    "ar": "وجهة"
+   },
+   "title": {
+    "en": "The Venue",
+    "ar": "ذا فينيو"
+   },
+   "until": {
+    "en": "Coming soon",
+    "ar": "قريبًا"
+   },
+   "price": null,
+   "organizer": null,
+   "photo": "assets/img/stop-riyadh.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/zones/the-venue-rs25",
+    "ar": "https://webook.com/ar/SA/RUH/zones/the-venue-rs25"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "dakkah-nakhl-shai-cafe-1",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Event",
+    "ar": "فعالية"
+   },
+   "title": {
+    "en": "Dakkah Nakhl",
+    "ar": "دكة نخل"
+   },
+   "until": {
+    "en": "Until 30 Jan 2027",
+    "ar": "حتى 30 يناير 2027"
+   },
+   "price": 25,
+   "organizer": null,
+   "photo": "assets/img/tour-alt-film-5.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/drh/experience/events/dakkah-nakhl-shai-cafe-1",
+    "ar": "https://webook.com/ar/SA/drh/experience/events/dakkah-nakhl-shai-cafe-1"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "smar-sayyaf-saeed-1smar-sayyaf-saeed-1",
+   "stop": "riyadh",
+   "region": "riyadh",
+   "type": {
+    "en": "Event",
+    "ar": "فعالية"
+   },
+   "title": {
+    "en": "Samar Al-Ammariyah (smar)",
+    "ar": "سمر العمارية"
+   },
+   "until": {
+    "en": "Until 2 Feb 2027",
+    "ar": "حتى 2 فبراير 2027"
+   },
+   "price": 19,
+   "organizer": null,
+   "photo": "assets/img/tour-alt-film-7.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/amr/experience/events/smar-sayyaf-saeed-1smar-sayyaf-saeed-1",
+    "ar": "https://webook.com/ar/SA/amr/experience/events/smar-sayyaf-saeed-1smar-sayyaf-saeed-1"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "shuqaiq-and-ushayqir-tour",
+   "stop": "shaqra",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Shaqra & Ushayqir Tour - A Journey Through Heritage",
+    "ar": "جولة شقراء وأشيقر: رحلة عبر التراث"
+   },
+   "until": {
+    "en": "Until 3 Jan 2027",
+    "ar": "حتى 3 يناير 2027"
+   },
+   "price": 3500,
+   "organizer": "Rose Travel",
+   "photo": "assets/img/tour-shuqaiq-and-ushayqir-tour.jpg",
+   "photoIsStop": false,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/shuqaiq-and-ushayqir-tour",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/shuqaiq-and-ushayqir-tour"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "shaqra-ushaiger-tour-up-to-3-pax",
+   "stop": "ushaiqer",
+   "region": "riyadh",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Shaqra and Ushaiger Heritage Day Trip from Riyadh",
+    "ar": "رحلة يوم تراثية إلى شقراء وأشيقر من الرياض"
+   },
+   "until": {
+    "en": "Until 27 Jan 2027",
+    "ar": "حتى 27 يناير 2027"
+   },
+   "price": 3150,
+   "organizer": "Storm Adventures",
+   "photo": "assets/img/stop-ushaiqer.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/RUH/experience/experiences/shaqra-ushaiger-tour-up-to-3-pax",
+    "ar": "https://webook.com/ar/SA/RUH/experience/experiences/shaqra-ushaiger-tour-up-to-3-pax"
+   },
+   "duration": {
+    "en": "8 to 9 hours",
+    "ar": "8 إلى 9 ساعات"
+   },
+   "fullDay": true
+  },
+  {
+   "slug": "northern-trail",
+   "stop": "unaizah",
+   "region": "qassim",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Northern Trail",
+    "ar": "مسار الشمال"
+   },
+   "until": {
+    "en": "Until 29 Nov 2026",
+    "ar": "حتى 29 نوفمبر 2026"
+   },
+   "price": 1500,
+   "organizer": "Archinations",
+   "photo": "assets/img/tour-alt-film-2.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/experiences/northern-trail",
+    "ar": "https://webook.com/ar/SA/experiences/northern-trail"
+   },
+   "duration": null,
+   "fullDay": false
+  },
+  {
+   "slug": "discover-the-heritage-of-hail-private-tour",
+   "stop": "hail",
+   "region": "hail",
+   "type": {
+    "en": "Experience",
+    "ar": "تجربة"
+   },
+   "title": {
+    "en": "Private Heritage Tour of Hail, Saudi Arabia",
+    "ar": "جولة تراثية خاصة في حائل"
+   },
+   "until": {
+    "en": "Until 24 Jan 2027",
+    "ar": "حتى 24 يناير 2027"
+   },
+   "price": 2770,
+   "organizer": "Deira Tours",
+   "photo": "assets/img/stop-hail.jpg",
+   "photoIsStop": true,
+   "href": {
+    "en": "https://webook.com/en/SA/hal/experiences/discover-the-heritage-of-hail-private-tour",
+    "ar": "https://webook.com/ar/SA/hal/experiences/discover-the-heritage-of-hail-private-tour"
+   },
+   "duration": {
+    "en": "9:00 to 17:00",
+    "ar": "9:00 إلى 17:00"
+   },
+   "fullDay": true
+  }
+ ],
+ "stays": [
+  {
+   "key": "malfakum-al-diriyah",
+   "region": "riyadh",
+   "city": {
+    "en": "Diriyah",
+    "ar": "الدرعية"
+   },
+   "name": {
+    "en": "Malfakum Al Diriyah",
+    "ar": "ملفاكم الدرعية"
+   },
+   "tagline": {
+    "en": "Where modern comfort meets Diriyah heritage",
+    "ar": "إقامتك المريحة بالقرب من قلب التراث"
+   },
+   "desc": {
+    "en": "Just 3.7 km from the heart of historic Diriyah, Malfakum Diriyah offers a stay that blends comfort, convenience and quiet elegance.",
+    "ar": "يقع ملفاكم الدرعية على بُعد 3.7 كم فقط من الدرعية التاريخية، ويوفّر تجربة إقامة تجمع بين الراحة والعملية."
+   },
+   "priceFrom": 330,
+   "photo": "assets/img/stay-malfakum-al-diriyah.jpg",
+   "href": null,
+   "lat": 24.7539808385619,
+   "lng": 46.5810291456129
+  },
+  {
+   "key": "millennium-hotel-hail",
+   "region": "hail",
+   "city": {
+    "en": "Hail",
+    "ar": "حائل"
+   },
+   "name": {
+    "en": "Millennium Hotel Hail",
+    "ar": "فندق ميلينيوم حائل"
+   },
+   "tagline": {
+    "en": "Luxury Redefined with Comfort and Style",
+    "ar": "فخامة متكاملة، وراحة مُتقنة"
+   },
+   "desc": {
+    "en": "Millennium Hotel Hail sits across from Hail Economic City, combining comfort and services for business travelers, families and individuals.",
+    "ar": "يقع فندق ميلينيوم حائل في موقع استراتيجي مقابل مدينة حائل الاقتصادية، ليقدّم لضيوفه تجربة ضيافة راقية تجمع بين الفخامة، والراحة، والخدمات المصممة لتلبية احتياجات رجال الأعمال والعائلات والأفراد."
+   },
+   "priceFrom": 400,
+   "photo": "assets/img/stay-millennium-hotel-hail.jpg",
+   "href": null,
+   "lat": 27.653127341602573,
+   "lng": 41.72492156969683
+  },
+  {
+   "key": "al-malfa-resort",
+   "region": "qassim",
+   "city": {
+    "en": "Unaizah",
+    "ar": "عنيزة"
+   },
+   "name": {
+    "en": "Al Malfa Resort",
+    "ar": "منتجع الملفى"
+   },
+   "tagline": {
+    "en": "A peaceful retreat for rest and relaxation in Unaizah",
+    "ar": "ملاذ هادئ للإقامة والاسترخاء في عنيزة"
+   },
+   "desc": {
+    "en": "Al Malfa Resort offers a calm and comfortable stay in Unaizah, ideal for travelers seeking privacy, quiet moments, and a slower pace.",
+    "ar": "يقع منتجع الملفى في مدينة عنيزة، على بُعد نحو 3.4 كم من جامعة عنيزة، ويقدّم تجربة إقامة مريحة تناسب الباحثين عن الهدوء والخصوصية."
+   },
+   "priceFrom": 505,
+   "photo": "assets/img/stay-al-malfa-resort.jpg",
+   "href": null,
+   "lat": 26.094241140657417,
+   "lng": 44.07256460647977
+  },
+  {
+   "key": "braira-al-rass",
+   "region": "qassim",
+   "city": {
+    "en": "Ar Rass",
+    "ar": "الرس"
+   },
+   "name": {
+    "en": "Braira Al Rass",
+    "ar": "فندق بريرا الرس"
+   },
+   "tagline": {
+    "en": "A refined stay that balances comfort and elegance",
+    "ar": "إقامة مميزة تجمع الأناقة بالراحة"
+   },
+   "desc": {
+    "en": "Braira Al Rass offers a well-rounded stay experience where contemporary design meets attentive service.",
+    "ar": "يقدّم فندق بريرا الرس تجربة إقامة متكاملة تجمع بين التصميم الأنيق والخدمات المتنوعة، ليكون خيارًا مناسبًا لزوار الرس سواء لأغراض العمل أو الاسترخاء."
+   },
+   "priceFrom": null,
+   "photo": "assets/img/stay-braira-al-rass.jpg",
+   "href": null,
+   "lat": 25.8945807,
+   "lng": 43.4746026
+  },
+  {
+   "key": "yar-camp",
+   "region": "hail",
+   "city": {
+    "en": "Hail",
+    "ar": "حائل"
+   },
+   "name": {
+    "en": "Yar Camp",
+    "ar": "مخيم يار"
+   },
+   "tagline": {
+    "en": "Your Luxurious Retreat in Nature, Hail",
+    "ar": "ملاذك الفاخر وسط الطبيعة في حائل"
+   },
+   "desc": {
+    "en": "Yar Camp in Hail was created to embrace nature and cultural identity, offering visitors a fully immersive experience rooted in the land of Hail.",
+    "ar": "ينطلق مخيم يار في حائل من فكرة احتضان الطبيعة والهوية الثقافية ليمنح الزائر تجربة متكاملة على أرض حائل."
+   },
+   "priceFrom": null,
+   "photo": "assets/img/stay-yar-camp.jpg",
+   "href": null,
+   "lat": 28.0149359,
+   "lng": 41.722209
+  },
+  {
+   "key": "derity-farm-resort-in-qassim",
+   "region": "qassim",
+   "city": {
+    "en": "Buraydah",
+    "ar": "بريدة"
+   },
+   "name": {
+    "en": "Derity Farm Resort",
+    "ar": "منتجع ديرتي الريفي"
+   },
+   "tagline": {
+    "en": "A Busy Day with the Family",
+    "ar": "يوم حافل مع العائلة"
+   },
+   "desc": {
+    "en": "Derity Resort sits in Al Janoub district of Buraydah, built in a heritage style with family activities across the grounds.",
+    "ar": "يقع منتجع ديرتي في حي الجنوب ببريدة، ويتميز بطراز معماري تراثي وأنشطة ممتعة تناسب كافة أفراد العائلة."
+   },
+   "priceFrom": null,
+   "photo": "assets/img/stay-derity-farm-resort-in-qassim.jpg",
+   "href": null,
+   "lat": 26.317063679147005,
+   "lng": 43.972440380812294
+  },
+  {
+   "key": "sahab-resort",
+   "region": "hail",
+   "city": {
+    "en": "Hail",
+    "ar": "حائل"
+   },
+   "name": {
+    "en": "Sahab Resort",
+    "ar": "منتجع سهب"
+   },
+   "tagline": {
+    "en": "Elegant Stays with Stunning Views of the Aja Mountains",
+    "ar": "إقامة راقية تطل على جبال أجا وسط تضاريس حائل"
+   },
+   "desc": {
+    "en": "Nestled in the scenic landscapes of Hail, Sahab Resort offers an elevated hospitality experience with direct views of the majestic Aja Mountains.",
+    "ar": "يقع منتجع سهب وسط التضاريس الخلابة بمنطقة حائل، مع إطلالة مباشرة على سلسلة جبال أجا، ليقدّم تجربة إقامة تجمع بين الهدوء، والرقي، والخصوصية."
+   },
+   "priceFrom": null,
+   "photo": "assets/img/stay-sahab-resort.jpg",
+   "href": null,
+   "lat": 27.52600434303602,
+   "lng": 41.59497698216042
+  },
+  {
+   "key": "shahareez-resort",
+   "region": "hail",
+   "city": {
+    "en": "Hail",
+    "ar": "حائل"
+   },
+   "name": {
+    "en": "Shahareez Resort",
+    "ar": "منتجع شهاريز"
+   },
+   "tagline": {
+    "en": "Where comfort meets the calm of nature",
+    "ar": "حيث تنسجم الفخامة مع هدوء الطبيعة"
+   },
+   "desc": {
+    "en": "Located in Hail, Shahareez Resort offers a peaceful stay surrounded by natural landscapes.",
+    "ar": "يقدّم منتجع شهاريز في حائل تجربة إقامة هادئة ومميزة، تنسجم فيها الفخامة مع السكون في قلب الطبيعة."
+   },
+   "priceFrom": null,
+   "photo": "assets/img/stay-shahareez-resort.jpg",
+   "href": null,
+   "lat": 27.827406,
+   "lng": 41.7532893
+  }
+ ],
+ "sections": {
+  "tours": {
+   "title": {
+    "en": "Tours and Experiences",
+    "ar": "جولات وتجارب على امتداد المسار"
+   },
+   "sub": {
+    "en": "Bookable on webook, stop by stop.",
+    "ar": "احجزها على webook، محطة بمحطة."
+   },
+   "cta": {
+    "en": "Book on webook",
+    "ar": "احجز على webook"
+   }
+  },
+  "stays": {
+   "title": {
+    "en": "Accommodations Along the Route",
+    "ar": "خيارات الإقامة على امتداد المسار"
+   },
+   "sub": {
+    "en": "Places to rest between the drives, from Diriyah to Hail.",
+    "ar": "أماكن للراحة بين محطات الطريق، من الدرعية إلى حائل."
+   },
+   "from": {
+    "en": "From",
+    "ar": "تبدأ من"
+   },
+   "night": {
+    "en": "per night",
+    "ar": "لليلة"
+   },
+   "soon": {
+    "en": "Booking link coming soon",
+    "ar": "رابط الحجز قريبًا"
+   }
+  },
+  "tips": {
+   "title": {
+    "en": "Visitor Tips",
+    "ar": "نصائح للزوار"
+   }
+  },
+  "faq": {
+   "title": {
+    "en": "FAQs",
+    "ar": "الأسئلة الشائعة"
+   }
+  }
+ }
+}

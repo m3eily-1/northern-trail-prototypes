@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Northern Trail: Paper diorama</title>
+<link rel="icon" href="data:,">
+<script>
+  /* set language + direction before first paint */
+  (function () {
+    var ar = new URLSearchParams(location.search).get('lang') === 'ar';
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var seen = false;
+    try { seen = sessionStorage.getItem('nt-h-loader') === '1'; } catch (e) {}
+    document.documentElement.classList.add(rm ? 'is-rm' : 'is-motion');
+    if (!rm && !seen) document.documentElement.classList.add('is-loading');
+  })();
+</script>
+<link rel="preload" href="../assets/content.json" as="fetch" crossorigin>
+<link rel="stylesheet" href="../assets/brand.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="practical.css">
+</head>
+<body>
+<div class="host-bar">
+  <span class="host-bar__brand">webook</span>
+  <nav class="lang" aria-label="Language">
+    <a class="lang__btn" href="?lang=en" hreflang="en" lang="en" data-lang="en">EN</a>
+    <a class="lang__btn" href="?lang=ar" hreflang="ar" lang="ar" data-lang="ar">عربي</a>
+  </nav>
+</div>
+
+
+<div class="loader" aria-hidden="true"></div>
+
+<main class="nt page" id="app" aria-busy="true"></main>
+
+<dialog class="sheet" aria-labelledby="sheet-title"></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

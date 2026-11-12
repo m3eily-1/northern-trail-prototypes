@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northern Trail directions</title>
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+  body { margin: 0; background: #824628; }
+  .nt { min-height: 100vh; background: var(--nt-sand-dark); color: var(--nt-cream); }
+  .wrap { max-width: 1312px; margin: 0 auto; padding: 64px 32px; box-sizing: border-box; }
+  .logo { width: 160px; display: block; }
+  h1 { font-family: var(--nt-display); font-weight: 700; font-size: clamp(36px, 5vw, 64px); line-height: 1.1; margin: 48px 0 16px; }
+  p.lede { max-width: 56ch; font-size: 18px; margin: 0 0 48px; }
+  ul { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 0; padding: 0; list-style: none; }
+  a.card { display: flex; flex-direction: column; gap: 12px; min-height: 220px; padding: 32px 24px; background: var(--nt-cream); color: var(--nt-sand-dark); text-decoration: none; transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+  a.card:hover { transform: translateY(-6px); }
+  .k { font-family: var(--nt-display); font-weight: 700; font-size: 14px; letter-spacing: .12em; }
+  .t { font-family: var(--nt-display); font-weight: 700; font-size: 28px; line-height: 1.2; }
+  .d { font-size: 15px; color: var(--nt-ink); }
+  .ar { margin-top: auto; font-size: 14px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="nt"><div class="wrap">
+  <img class="logo" src="assets/svg/logo-cream.svg" alt="Northern Trail">
+  <h1>Two directions</h1>
+  <p class="lede">Each one is built around a single idea. Open it, scroll it, play with it, then pick one to take into the webook page. Add ?lang=ar for Arabic.</p>
+  <ul>
+    <li><a class="card" href="h-diorama/"><span class="k">H</span><span class="t">Paper diorama</span><span class="d">Pop-up paper scenes of each region that tilt with your pointer.</span><span class="ar">Open</span></a></li>
+    <li><a class="card" href="r-film-road/"><span class="k">R</span><span class="t">Film and road</span><span class="d">The film plays inside the word NORTH as the page loads, then fills the screen. A stop reel with a car on the dotted road; each stop opens its own page. Postcard tours with a Full day filter, trip bundles, and a trip list you can share and check out at once.</span><span class="ar">Open</span></a></li>
+  </ul>
+</div></div>
+</body>
+</html>
