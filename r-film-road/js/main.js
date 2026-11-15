@@ -1,19 +1,19 @@
 // Direction R: Film and road. C's cinematic word becomes the loading intro, the film is the hero,
 // then C's stop reel with a car on N's dotted road, webook-style tours and stays,
 // G's "Before you go" and FAQs, and the closing. Each section owns its DOM and its triggers.
-import { LABELS } from './labels.js?v=24';
-import { createIntro } from './intro.js?v=24';
-import { initHero } from './hero.js?v=24';
-import { initAbout } from './about.js?v=24';
-import { initStops } from './stops.js?v=24';
-import { initPostcards } from './postcards.js?v=24';
-import { initBook } from './book.js?v=24';
-import { initPractical } from './practical.js?v=24';
-import { initClosing } from './closing.js?v=24';
-import { initGrain } from './fx.js?v=24';
-import { initWebook } from './webook.js?v=24';
-import { initTrip } from './trip.js?v=24';
-import { initBundles } from './bundles.js?v=24';
+import { LABELS } from './labels.js?v=27';
+import { createIntro } from './intro.js?v=27';
+import { initHero } from './hero.js?v=27';
+import { initAbout } from './about.js?v=27';
+import { initStops } from './stops.js?v=27';
+import { initPostcards } from './postcards.js?v=27';
+import { initBook } from './book.js?v=27';
+import { initPractical } from './practical.js?v=27';
+import { initClosing } from './closing.js?v=27';
+import { initGrain } from './fx.js?v=27';
+import { initWebook } from './webook.js?v=27';
+import { initTrip } from './trip.js?v=27';
+import { initBundles } from './bundles.js?v=27';
 
 const { gsap, ScrollTrigger } = window;
 gsap.registerPlugin(ScrollTrigger);

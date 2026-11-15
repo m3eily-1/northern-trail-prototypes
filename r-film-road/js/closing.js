@@ -12,28 +12,27 @@ const STICKERS = [
 ];
 
 export function initClosing(root, ctx) {
-  const { gsap, data, t, rtl, asset, reduced, isPhone } = ctx;
+  const { gsap, data, t, rtl, asset, reduced } = ctx;
   const tag = root.querySelector('.ntc-closing__tag span');
   tag.textContent = data.hero.tagline;
   root.querySelector('.ntc-closing__line').textContent = t(data.closing.line);
 
-  // stickers
+  // stickers: sizes and which ones show are set in CSS per screen width (style.css .ntc-sticker),
+  // so they shrink on tablets and phones and the two middle ones drop out before they reach the text
   const wrap = root.querySelector('.ntc-closing__stickers');
-  const items = STICKERS.filter((s) => !isPhone || s.phone).map((s) => {
+  const items = STICKERS.map((s) => {
     const el = document.createElement('div');
-    el.className = 'ntc-sticker';
-    const w = isPhone ? Math.round(s.w * 0.5) : s.w;
-    el.style.setProperty('--w', `${w}px`);
+    el.className = `ntc-sticker ntc-sticker--${s.side}${s.phone ? '' : ' is-mid'}`;
+    el.style.setProperty('--w', `${s.w}px`);
     el.style.setProperty('--r', `${s.r}deg`);
-    el.style.top = `${isPhone ? s.pTop : s.top}%`;
-    // peek: about 35% of the sticker hangs outside the section edge
-    el.style.setProperty(s.side === 'start' ? 'inset-inline-start' : 'inset-inline-end', `${-Math.round(w * 0.35)}px`);
+    el.style.setProperty('--top', `${s.top}%`);
+    el.style.setProperty('--ptop', `${s.pTop ?? s.top}%`);
     el.innerHTML = `<img src="${asset(data.stickers[s.key])}" alt="" loading="lazy" draggable="false">`;
     wrap.appendChild(el);
     // physical direction that points out of the section for this sticker
     const startIsLeft = !rtl;
     const outward = (s.side === 'start') === startIsLeft ? -1 : 1;
-    return { el, outward, w };
+    return { el, outward, w: el.offsetWidth || s.w };
   });
 
   const reveals = root.querySelectorAll('[data-reveal]');

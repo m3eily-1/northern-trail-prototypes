@@ -6,8 +6,8 @@
 // The road underneath: a car drives a dotted road (direction N's path) from the first stop to the
 // last. The focus point slides across the screen with the car, so the card above the car is always
 // the stop the car has reached. The card in focus grows slightly.
-import { pad2 } from './labels.js';
-import { initRoad } from './road.js';
+import { pad2 } from './labels.js?v=27';
+import { initRoad } from './road.js?v=27';
 
 const CLOCK =
   '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V8l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';

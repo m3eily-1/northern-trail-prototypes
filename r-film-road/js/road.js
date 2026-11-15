@@ -1,12 +1,17 @@
 // The road under the stops reel: a gently winding dotted line (direction N's path), one node per
 // stop, and the car illustration driving it. The part already driven is bright; what is ahead is
 // faint. Nodes are buttons: they take you to that stop.
-import { pad2 } from './labels.js';
+//
+// The road never shrinks: when the screen is too narrow for the stops to sit MIN_GAP apart, the
+// road is drawn wider than the screen and slides under a fixed window (.r-road__view) in step with
+// the car, so the car stays where the reel expects it (box() is the window, not the road).
+import { pad2 } from './labels.js?v=27';
 
 const NS = 'http://www.w3.org/2000/svg';
 const H = 56; // svg height
 const MID = 34; // road centre line
 const AMP = 9; // wave amplitude
+const MIN_GAP = 48; // px between neighbouring stops, so the dots and numbers stay full size
 
 const CAR = `
   <svg class="r-car__svg" viewBox="0 0 104 58" aria-hidden="true">
@@ -31,6 +36,13 @@ const CAR = `
 export function initRoad(root, ctx) {
   const { L, rtl, reduced } = ctx;
   const inner = root.querySelector('.r-road__in');
+  // the window the road slides under (keeps the layout margins; the section clips at the screen edge)
+  const view = document.createElement('div');
+  view.className = 'r-road__view';
+  inner.before(view);
+  view.appendChild(inner);
+  let A = 0; // window width
+  let wide = false;
   const svg = root.querySelector('.r-road__svg');
   const nodesEl = root.querySelector('.r-road__nodes');
   const car = root.querySelector('.r-car');
@@ -51,9 +63,21 @@ export function initRoad(root, ctx) {
 
   const yAt = (x) => ys[Math.max(0, Math.min(ys.length - 1, Math.round(x)))] ?? MID;
 
+  // road width for the current stops: the window, or wider when they would sit closer than MIN_GAP
+  const roadWidth = () => {
+    if (fr.length < 2) return A;
+    const span = Math.max(0.05, fr[fr.length - 1] - fr[0]);
+    return Math.max(A, Math.ceil((MIN_GAP * (fr.length - 1)) / span));
+  };
+
   function build() {
-    W = inner.clientWidth;
-    if (!W) return;
+    A = view.clientWidth;
+    if (!A) return;
+    W = roadWidth();
+    wide = W > A + 1;
+    inner.style.width = wide ? `${W}px` : '';
+    if (!wide) inner.style.transform = '';
+    root.classList.toggle('is-wide', wide);
     // two and a half gentle waves across the width, flattening into both ends
     ys = [];
     for (let x = 0; x <= W; x++) {
@@ -105,6 +129,8 @@ export function initRoad(root, ctx) {
     p = np;
     if (!W) return;
     const x = rtl ? W - p * W : p * W;
+    // slide the wide road so the car sits at p across the window, as the reel expects
+    if (wide) inner.style.transform = `translate3d(${(-(rtl ? 1 - p : p) * (W - A)).toFixed(1)}px, 0, 0)`;
     const dx = 3;
     const y = yAt(x);
     const ang = (Math.atan2(yAt(x + dx) - yAt(x - dx), dx * 2) * 180) / Math.PI;
@@ -131,16 +157,17 @@ export function initRoad(root, ctx) {
     }
   }
 
-  new ResizeObserver(() => build()).observe(inner);
+  new ResizeObserver(() => build()).observe(view);
   build();
 
   return {
-    box: () => inner.getBoundingClientRect(),
+    box: () => view.getBoundingClientRect(),
     set: (np, current) => set(np, current),
     nodes(fractions, cards) {
       fr = fractions;
       names = cards.map((c) => c.name);
       nums = cards.map((c) => c.n);
+      if (roadWidth() !== W) return build();
       placeNodes();
       set(p, cur, true);
     },

@@ -1,7 +1,7 @@
 // Hero: the brand film full bleed, with the title, line and call to action over a scrim.
 // The film starts during the intro (it is what shows through the letters), pauses off screen,
 // and has a pause control.
-import { splitWords, pad2 } from './labels.js';
+import { splitWords, pad2 } from './labels.js?v=27';
 
 export function initHero(root, ctx) {
   const { data, t, L, asset, reduced, isPhone } = ctx;

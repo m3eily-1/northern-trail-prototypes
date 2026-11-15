@@ -1,6 +1,7 @@
 // Trip bundles: an experience and a stay that sit on the same part of the road, shown as one card
 // with both photos, both prices and the total for one guest and one night. "Add both to trip"
 // puts the pair in the trip list. Only priced items are paired (they come from content.json).
+import { money } from './money.js?v=27';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const num = (n) => Number(n).toLocaleString('en-US');
 
@@ -47,7 +48,7 @@ const U = {
     addBoth: 'Add both to trip',
     perGuest: 'per guest',
     perNight: 'per night',
-    sar: (n) => `SAR ${n}`,
+    sar: (n) => `¤${n}`,
     free: 'Free',
     all: 'All',
     filter: 'Show bundles by region',
@@ -61,7 +62,7 @@ const U = {
     addBoth: 'أضف الاثنين إلى رحلتك',
     perGuest: 'للضيف',
     perNight: 'لليلة',
-    sar: (n) => `${n} ر.س`,
+    sar: (n) => `¤${n}`,
     free: 'مجانًا',
     all: 'الكل',
     filter: 'عرض الباقات حسب المنطقة',
@@ -96,11 +97,11 @@ export function bundleCard(b, ctx, i = 0) {
         <p class="bn-card__k">${esc(u.eyebrow)} · ${esc(t(region?.name))}</p>
         <h3 class="bn-card__t">${esc(t(b.title))}</h3>
         <ul class="bn-card__items">
-          <li><span class="bn-card__i">${TOUR_I}</span><span class="bn-card__n"><a href="${esc(t(b.tourItem.href))}" target="_blank" rel="noopener">${esc(t(b.tourItem.title))}</a><small>${esc(t(stopBy[b.tourItem.stop]?.name))}${b.tourItem.duration ? ` · ${esc(t(b.tourItem.duration))}` : ''}</small></span><span class="bn-card__p">${esc(price(b.tourItem.price))}<small>${esc(u.perGuest)}</small></span></li>
-          <li><span class="bn-card__i">${STAY_I}</span><span class="bn-card__n"><span>${esc(t(b.stayItem.name))}</span><small>${esc(t(b.stayItem.city))}</small></span><span class="bn-card__p">${esc(price(b.stayItem.priceFrom))}<small>${esc(u.perNight)}</small></span></li>
+          <li><span class="bn-card__i">${TOUR_I}</span><span class="bn-card__n"><a href="${esc(t(b.tourItem.href))}" target="_blank" rel="noopener">${esc(t(b.tourItem.title))}</a><small>${esc(t(stopBy[b.tourItem.stop]?.name))}${b.tourItem.duration ? ` · ${esc(t(b.tourItem.duration))}` : ''}</small></span><span class="bn-card__p">${money(esc(price(b.tourItem.price)))}<small>${esc(u.perGuest)}</small></span></li>
+          <li><span class="bn-card__i">${STAY_I}</span><span class="bn-card__n"><span>${esc(t(b.stayItem.name))}</span><small>${esc(t(b.stayItem.city))}</small></span><span class="bn-card__p">${money(esc(price(b.stayItem.priceFrom)))}<small>${esc(u.perNight)}</small></span></li>
         </ul>
         <div class="bn-card__foot">
-          <p class="bn-card__sum"><span>${esc(u.together)}</span><b>${esc(price(b.total))}</b><small>${esc(u.basis)}</small></p>
+          <p class="bn-card__sum"><span>${esc(u.together)}</span><b>${money(esc(price(b.total)))}</b><small>${esc(u.basis)}</small></p>
           ${trip ? trip.button([`t:${b.tour}`, `s:${b.stay}`], { label: u.addBoth }) : ''}
         </div>
       </div>

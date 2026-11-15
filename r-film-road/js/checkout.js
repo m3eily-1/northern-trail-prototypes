@@ -1,9 +1,10 @@
 // Checkout for the whole trip at once: every tour and stay from the trip list, each with its date
 // and guests or nights, one set of contact details, one payment, one total. It is a prototype:
 // nothing is charged or booked; the confirmation says so.
-import { pad2 } from './labels.js?v=24';
-import { initWebook } from './webook.js?v=24';
-import { initTrip, TRIP_ICON } from './trip.js?v=24';
+import { pad2 } from './labels.js?v=27';
+import { initWebook } from './webook.js?v=27';
+import { initTrip, TRIP_ICON } from './trip.js?v=27';
+import { money } from './money.js?v=27';
 
 const html = document.documentElement;
 const lang = html.lang === 'ar' ? 'ar' : 'en';
@@ -37,7 +38,7 @@ const CL = {
     summary: 'Summary',
     total: 'Total',
     pay: (n) => `Pay ${n}`,
-    sar: (n) => `SAR ${n}`,
+    sar: (n) => `¤${n}`,
     free: 'Free',
     stop: (n, name) => `Stop ${n} · ${name}`,
     tour: 'Experience',
@@ -83,7 +84,7 @@ const CL = {
     summary: 'الملخص',
     total: 'المجموع',
     pay: (n) => `ادفع ${n}`,
-    sar: (n) => `${n} ر.س`,
+    sar: (n) => `¤${n}`,
     free: 'مجانًا',
     stop: (n, name) => `المحطة ${n} · ${name}`,
     tour: 'تجربة',
@@ -163,7 +164,7 @@ async function boot() {
           </div>
         </div>
         <div class="co-row__end">
-          <span class="co-row__sum">${esc(price(item.price * qty))}</span>
+          <span class="co-row__sum">${money(esc(price(item.price * qty)))}</span>
           <button type="button" class="co-row__rm" data-rm>${esc(C.remove)}</button>
         </div>
       </li>`;
@@ -232,10 +233,10 @@ async function boot() {
             <div class="co-sum__in">
               <h2 class="co-sum__t" id="co-sum-t">${esc(C.summary)}</h2>
               <ul class="co-sum__list">
-                ${items.map(({ qty, item }) => `<li><span>${esc(t(item.title))} <small dir="ltr">× ${qty}</small></span><b>${esc(price(item.price * qty))}</b></li>`).join('')}
+                ${items.map(({ qty, item }) => `<li><span>${esc(t(item.title))} <small dir="ltr">× ${qty}</small></span><b>${money(esc(price(item.price * qty)))}</b></li>`).join('')}
               </ul>
-              <p class="co-sum__total"><span>${esc(C.total)}</span><b>${esc(price(total))}</b></p>
-              <button class="nt-btn co-pay-btn" type="submit">${esc(C.pay(price(total)))}</button>
+              <p class="co-sum__total"><span>${esc(C.total)}</span><b>${money(esc(price(total)))}</b></p>
+              <button class="nt-btn co-pay-btn" type="submit">${money(esc(C.pay(price(total))))}</button>
             </div>
           </aside>
         </form>
@@ -316,9 +317,9 @@ async function boot() {
         <p class="co-done__h">${esc(C.doneH(form.email.trim()))}</p>
         <p class="co-done__ref"><span>${esc(C.ref)}</span><b dir="ltr">${ref}</b></p>
         <ol class="co-done__list">
-          ${items.map(({ id, qty, item }) => `<li><span class="co-done__d">${esc(fmt(dates[id]))}</span><span class="co-done__n">${esc(t(item.title))}</span><span class="co-done__q">${esc(item.kind === 'tour' ? C.guests : C.nights)} <span dir="ltr">${qty}</span></span><b>${esc(price(item.price * qty))}</b></li>`).join('')}
+          ${items.map(({ id, qty, item }) => `<li><span class="co-done__d">${esc(fmt(dates[id]))}</span><span class="co-done__n">${esc(t(item.title))}</span><span class="co-done__q">${esc(item.kind === 'tour' ? C.guests : C.nights)} <span dir="ltr">${qty}</span></span><b>${money(esc(price(item.price * qty)))}</b></li>`).join('')}
         </ol>
-        <p class="co-sum__total co-done__total"><span>${esc(C.total)}</span><b>${esc(price(total))}</b></p>
+        <p class="co-sum__total co-done__total"><span>${esc(C.total)}</span><b>${money(esc(price(total)))}</b></p>
         <a class="nt-btn nt-btn--light" href="index.html?lang=${lang}">${esc(C.again)}</a>
       </div>`;
     trip.clear();

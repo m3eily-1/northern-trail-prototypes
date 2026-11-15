@@ -1,6 +1,7 @@
 // Stays as plain webook listings: square photo, "stay · region" line, name, city, price per night.
 // With a webook link the whole card is the link (new tab); without one it is a plain card.
 // (Tours and Experiences are option E's postcards, in postcards.js.)
+import { money } from './money.js?v=27';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const num = (n) => Number(n).toLocaleString('en-US');
@@ -37,7 +38,7 @@ export function bkCard({ href, photo, meta, title, place, price, note, newTab, d
         <span class="bk-card__meta">${esc(meta)}</span>
         <span class="bk-card__title">${esc(title)}</span>
         <span class="bk-card__place">${esc(place)}</span>
-        <span class="bk-card__price">${esc(price)}${href ? `<span class="ntc-sr"> (${esc(newTab)})</span>` : ''}</span>
+        <span class="bk-card__price">${money(esc(price))}${href ? `<span class="ntc-sr"> (${esc(newTab)})</span>` : ''}</span>
         ${note ? `<span class="bk-card__note"><i aria-hidden="true"></i>${esc(note)}</span>` : ''}
         ${href ? `<span class="bk-card__go" aria-hidden="true">${ARROW}</span>` : ''}
       </${tag}>

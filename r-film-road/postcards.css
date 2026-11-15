@@ -215,6 +215,8 @@ html[lang='ar'] .pt__place { line-height: 1.5; }
 .pt__title { margin-block-start: var(--nt-s2); font: 700 19px/1.3 var(--nt-display); color: var(--nt-sand-dark); -webkit-line-clamp: 2; height: calc(2 * 1.3em); }
 html[lang='ar'] .pt__title { font-size: 17px; line-height: 1.55; -webkit-line-clamp: 3; height: calc(3 * 1.55em); }
 .pt__until { margin-block-start: var(--nt-s2); font-size: 14px; font-weight: 600; line-height: 20px; color: var(--nt-ink); }
+/* price: the hotel cards' line (book.css .bk-card__price), in ink on the paper */
+.pt__price { margin-block-start: var(--nt-s2); font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--nt-ink); }
 .pt__foot { display: flex; align-items: center; justify-content: flex-end; min-height: 44px; margin-block-start: auto; padding-block-start: var(--nt-s3); border-block-start: 1.5px dashed var(--pp-line); }
 .pt__body .pt__until + .pt__foot { margin-block-start: var(--nt-s4); }
 .pt__cta { display: inline-flex; align-items: center; gap: var(--nt-s2); font-family: var(--nt-display); font-weight: 700; font-size: 15px; line-height: 1.2; color: var(--nt-sand-dark); white-space: nowrap; }
@@ -265,3 +267,4 @@ html[dir='rtl'] .pr-arrow { transform: scaleX(-1); }
 
 /* no "Book on webook" line: the card itself is the link; even padding under the date */
 .pt__body { padding-block-end: var(--nt-s3); }
+@media (max-width: 767px) { .pt__price { font-size: 14px; } }

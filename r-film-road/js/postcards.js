@@ -1,7 +1,8 @@
 // Tours and Experiences as option E's postcards: each tour is a slightly tilted postcard with the
-// stop name on the photo and the price as a perforated postage stamp. Filters are plain buttons
+// stop name on the photo and the price as a plain line under the name (as on the hotel cards). Filters are plain buttons
 // (regions, then stops). Shows 8, then "Show all".
-import { pad2 } from './labels.js';
+import { pad2 } from './labels.js?v=27';
+import { money } from './money.js?v=27';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const num = (n) => Number(n).toLocaleString('en-US');
@@ -56,14 +57,8 @@ export function makePostcard(ctx) {
   const u = U[lang];
   const stopBy = Object.fromEntries(data.stops.map((s, i) => [s.key, { ...s, i }]));
 
-  const priceStamp = (p) => {
-    if (p == null) return '<span class="pt__stamp pt__stamp--blank" aria-hidden="true"></span>';
-    const inner = p === 0
-      ? `<span class="pt__val">${esc(u.free)}</span>`
-      : `<span class="pt__from">${rtl ? 'تبدأ من' : 'From'}</span><span class="pt__val">${num(p)}</span><span class="pt__cur">${rtl ? 'ر.س' : 'SAR'}</span>`;
-    return `<span class="pt__stamp" aria-hidden="true"><span class="stamp__paper" style="--stamp:var(--nt-sand-dark)">${inner}</span></span>`;
-  };
-  const priceText = (p) => (p == null ? '' : p === 0 ? u.free : rtl ? `تبدأ من ${num(p)} ر.س` : `From SAR ${num(p)}`);
+  // the price reads like the hotel cards: one plain line under the name
+  const priceText = (p) => (p == null ? '' : p === 0 ? u.free : rtl ? `تبدأ من ¤${num(p)} للضيف` : `From ¤${num(p)} per guest`);
 
   return (x, i) => {
     const s = stopBy[x.stop];
@@ -73,13 +68,12 @@ export function makePostcard(ctx) {
         <span class="pt__photo">
           <img src="${asset(x.photo)}" alt="" loading="lazy" decoding="async" draggable="false">
           <span class="pt__place">${esc(t(s.name))}</span>
-          ${priceStamp(x.price)}
         </span>
         <span class="pt__body">
           <span class="pt__meta">${meta}</span>
           <span class="pt__title">${esc(t(x.title))}</span>
           <span class="pt__until">${esc(t(x.until))}</span>
-          <span class="ntc-sr">${esc(priceText(x.price))}</span>
+          ${x.price != null ? `<span class="pt__price">${money(esc(priceText(x.price)))}</span>` : ''}
         </span>
         <span class="ntc-sr"> (${esc(u.newTab)})</span>
       </a>

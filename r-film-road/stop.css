@@ -141,24 +141,6 @@ html[lang='ar'] .sp-card__t { line-height: 1.5; }
 .sp-stay.bk { padding-block: var(--nt-s9); }
 
 /* ---------- tips + faq ---------- */
-.sp-tips { background: var(--nt-stone); color: var(--nt-ink); }
-.sp-tips .sp-h { color: var(--nt-sand-dark); }
-.sp-tips__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--nt-s8); align-items: start; }
-.sp-tiplist { border-top: 1px solid rgba(130, 70, 40, 0.25); }
-.sp-tiplist li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: var(--nt-s4); padding-block: var(--nt-s5); border-bottom: 1px solid rgba(130, 70, 40, 0.25); }
-.sp-tiplist__n { font-family: var(--nt-display); font-weight: 700; font-size: 24px; line-height: 1.2; color: var(--nt-sand); font-variant-numeric: tabular-nums; unicode-bidi: isolate; }
-.sp-tiplist p { font-size: 17px; line-height: 1.6; }
-.sp-faq { border-top: 1px solid rgba(130, 70, 40, 0.25); }
-.sp-qa { border-bottom: 1px solid rgba(130, 70, 40, 0.25); }
-.sp-qa summary { display: flex; align-items: center; justify-content: space-between; gap: var(--nt-s4); min-height: 64px; padding-block: var(--nt-s4); font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--nt-sand-dark); cursor: pointer; list-style: none; }
-.sp-qa summary::-webkit-details-marker { display: none; }
-.sp-qa summary i { position: relative; flex: none; width: 32px; height: 32px; border: 1px solid rgba(130, 70, 40, 0.4); transition: transform 0.3s var(--ease-out), background-color 0.2s; }
-.sp-qa summary i::before, .sp-qa summary i::after { content: ''; position: absolute; top: 50%; left: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; background: currentColor; }
-.sp-qa summary i::after { transform: rotate(90deg); transition: transform 0.3s var(--ease-out); }
-.sp-qa[open] summary i { background: var(--nt-sand-dark); color: var(--nt-cream); }
-.sp-qa[open] summary i::after { transform: none; }
-.sp-qa summary:focus-visible { outline: 2px solid var(--nt-sand-dark); outline-offset: 2px; }
-.sp-qa p { padding-bottom: var(--nt-s5); font-size: 16px; line-height: 1.65; }
 
 /* ---------- previous / next stop ---------- */
 .sp-next { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--deep); }
@@ -194,7 +176,7 @@ html[dir='rtl'] .sp-next__a.is-next:hover .sp-next__go { transform: translateX(-
   .sp-get__grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 900px) {
-  .sp-about__grid, .sp-tips__grid { grid-template-columns: minmax(0, 1fr); }
+  .sp-about__grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 767px) {
   .sp-sec, .sp-book, .sp-bn, .sp-stay.bk { padding-block: var(--nt-s8); }
@@ -216,7 +198,6 @@ html[dir='rtl'] .sp-next__a.is-next:hover .sp-next__go { transform: translateX(-
   .sp-card { scroll-snap-align: start; }
   .sp-card__t { font-size: 19px; }
   .sp-extra { margin-top: var(--nt-s8); }
-  .sp-tiplist p, .sp-qa summary { font-size: 16px; }
   .sp-next { grid-template-columns: minmax(0, 1fr); }
   .sp-next__a { min-height: 200px; padding: var(--nt-s5) var(--nt-gutter); }
   .sp-next__a.is-next { order: -1; }
@@ -227,3 +208,7 @@ html[dir='rtl'] .sp-next__a.is-next:hover .sp-next__go { transform: translateX(-
 
 .sp-book .pp__more-row { margin-top: var(--nt-s7); }
 .sp-book .pp__more-row:has(> [hidden]) { display: none; }
+
+/* visitor tips + FAQs use the landing page component (style.css .px); the FAQ title sticks below
+   both the nav and this page's jump tabs */
+.sp .px--faq .px-head { top: calc(64px + var(--sp-jump-h, 56px) + var(--nt-s6)); }

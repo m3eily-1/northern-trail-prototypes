@@ -7,7 +7,7 @@
 // bar. When everything is ready the camera dives into the thickest stroke of the word (found with
 // a distance transform) until the film fills the screen, the panel fades, and the hero copy
 // takes over. The page cannot scroll until then.
-import { pad2 } from './labels.js';
+import { pad2 } from './labels.js?v=27';
 
 const HOLD_MS = 700; // the word is on screen this long before the dive, so it reads
 const MAX_MS = 6000; // never trap the page behind a slow asset

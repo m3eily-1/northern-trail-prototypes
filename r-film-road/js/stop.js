@@ -5,13 +5,14 @@
 //
 // Sections: hero, sticky "on this page" tabs, overview with the trail ruler, getting there and
 // weather, places to discover, book here (postcards) and bundles, more to do, dining, stays,
-// tips and FAQ, previous and next stop.
-import { pad2 } from './labels.js?v=24';
-import { initWebook } from './webook.js?v=24';
-import { initTrip, TRIP_ICON } from './trip.js?v=24';
-import { makePostcard } from './postcards.js?v=24';
-import { initBundles } from './bundles.js?v=24';
-import { bkCard } from './book.js?v=24';
+// visitor tips and FAQs (shared with the landing page, practical.js), previous and next stop.
+import { pad2, LABELS } from './labels.js?v=27';
+import { initWebook } from './webook.js?v=27';
+import { initTrip, TRIP_ICON } from './trip.js?v=27';
+import { makePostcard } from './postcards.js?v=27';
+import { initBundles } from './bundles.js?v=27';
+import { bkCard } from './book.js?v=27';
+import { renderTips, renderFaq } from './practical.js?v=27';
 
 const html = document.documentElement;
 const lang = html.lang === 'ar' ? 'ar' : 'en';
@@ -56,7 +57,7 @@ const SL = {
     staySub: 'Places to stay on Visit Saudi’s list for this stop.',
     stayNearSub: 'There is no stay listed for this stop yet. These are the nearest on the trail.',
     stayK: 'Stay',
-    night: (n) => `From SAR ${n} per night`,
+    night: (n) => `From ¤${n} per night`,
     prev: 'Previous stop',
     next: 'Next stop',
     showAll: (n) => `Show all (${n})`,
@@ -101,7 +102,7 @@ const SL = {
     staySub: 'أماكن إقامة من قائمة روح السعودية لهذه المحطة.',
     stayNearSub: 'لا توجد إقامة مدرجة لهذه المحطة بعد. هذه الأقرب على المسار.',
     stayK: 'إقامة',
-    night: (n) => `تبدأ من ${n} ر.س لليلة`,
+    night: (n) => `تبدأ من ¤${n} لليلة`,
     prev: 'المحطة السابقة',
     next: 'المحطة التالية',
     showAll: (n) => `عرض الكل (${n})`,
@@ -139,7 +140,7 @@ async function boot() {
   initWebook(lang);
   const [data, pages] = await Promise.all([
     fetch('../assets/content.json').then((r) => r.json()),
-    fetch('../assets/stops.json').then((r) => r.json()),
+    fetch('../assets/stops.json?v=2').then((r) => r.json()),
   ]);
   const t = (o) => (o && typeof o === 'object' ? o[lang] ?? o.en : o);
   const asset = (p) => (p ? `../${p}` : '');
@@ -190,7 +191,8 @@ async function boot() {
     more: (P.tours || []).length,
     dining: (P.dining || []).length || (P.extra || []).length,
     stay: staysVS.length || staysRegion.length,
-    tips: (P.tips || []).length || (P.faq || []).length,
+    tips: (P.tips || []).length,
+    faq: (P.faq || []).length,
   };
   const tabs = [
     ['overview', L.overview, true],
@@ -200,7 +202,8 @@ async function boot() {
     ['more', L.more, has.more],
     ['dining', L.dining, has.dining],
     ['stay', L.stay, has.stay],
-    ['tips', `${L.tips} · ${L.faq}`, has.tips],
+    ['tips', L.tips, has.tips],
+    ['faq', L.faq, has.faq],
   ].filter((x) => x[2]);
 
   const head = (id, title, sub, k) => `
@@ -387,22 +390,9 @@ async function boot() {
       </div>
     </section>` : ''}
 
-    ${has.tips ? `
-    <div class="sadu sadu--stone" aria-hidden="true"></div>
-    <section class="sp-sec sp-tips" id="tips" aria-labelledby="sp-tp-t">
-      <div class="nt-wrap sp-tips__grid">
-        ${(P.tips || []).length ? `
-        <div>
-          ${head('sp-tp-t', P.tipsTitle)}
-          <ol class="sp-tiplist">${P.tips.map((x, i) => `<li class="sp-rv" style="--i:${i}"><span class="sp-tiplist__n" dir="ltr">${pad2(i + 1)}</span><p>${esc(x)}</p></li>`).join('')}</ol>
-        </div>` : ''}
-        ${(P.faq || []).length ? `
-        <div>
-          ${head('sp-fq-t', P.faqTitle)}
-          <div class="sp-faq">${P.faq.map((x) => `<details class="sp-qa"><summary><span>${esc(x.q)}</span><i aria-hidden="true"></i></summary><p>${esc(x.a)}</p></details>`).join('')}</div>
-        </div>` : ''}
-      </div>
-    </section>` : ''}
+    ${has.tips || has.faq ? `<div class="sadu ${has.tips ? 'sadu--green' : 'sadu--stone'}" aria-hidden="true"></div>` : ''}
+    ${has.tips ? '<section class="px px--tips" id="tips"></section>' : ''}
+    ${has.faq ? '<section class="px px--faq" id="faq"></section>' : ''}
 
     <nav class="sp-next" aria-label="${esc(L.prev)} / ${esc(L.next)}">
       ${[[prev, L.prev, s.drive], [next, L.next, next?.drive]].map(([x, label, d], i) => x
@@ -445,6 +435,15 @@ async function boot() {
   }
   initBundles(root.querySelector('#sp-bundles'), ctx, { region: s.region, title: L.bundleTitle, sub: L.bundleSub, headingId: 'sp-bn-t' });
   ctx.trip.sync(root);
+
+  // visitor tips and FAQs: the same component as the landing page
+  const { gsap, ScrollTrigger } = window;
+  if (gsap && ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+  const px = { gsap, ScrollTrigger, rtl, reduced };
+  const ML = LABELS[lang];
+  if (has.tips) renderTips(root.querySelector('#tips'), px, { eyebrow: ML.tipsK, title: P.tipsTitle || L.tips, tips: P.tips.map((text) => ({ text })) });
+  if (has.faq) renderFaq(root.querySelector('#faq'), px, { eyebrow: ML.faqK, title: P.faqTitle || L.faq, faq: P.faq });
+  if (ScrollTrigger) addEventListener('load', () => ScrollTrigger.refresh());
 
   // ---------- jump tabs: active section, smooth jump under the sticky bars ----------
   const jump = root.querySelector('.sp-jump');

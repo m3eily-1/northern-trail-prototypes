@@ -4,6 +4,7 @@
 //
 // Item ids: "t:<tour slug>" and "s:<stay key>". Quantity is guests for a tour, nights for a stay.
 // Only items with a price can be added (checkout needs one).
+import { money } from './money.js?v=27';
 
 const KEY = 'nt-r-trip';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -46,7 +47,7 @@ export const TL = {
     perPerson: 'per guest',
     perNight: 'per night',
     free: 'Free',
-    sar: (n) => `SAR ${n}`,
+    sar: (n) => `¤${n}`,
     bar: 'My trip',
   },
   ar: {
@@ -85,7 +86,7 @@ export const TL = {
     perPerson: 'للضيف',
     perNight: 'لليلة',
     free: 'مجانًا',
-    sar: (n) => `${n} ر.س`,
+    sar: (n) => `¤${n}`,
     bar: 'رحلتي',
   },
 };
@@ -269,7 +270,7 @@ export function initTrip({ data, lang, t, asset, page = 'index.html' }) {
         <div class="trip__info">
           <span class="trip__k">${esc(kind)}${s ? ` · ${esc(L.stop(pad2(s.n), t(s.name)))}` : ''}</span>
           <span class="trip__t">${esc(name)}</span>
-          <span class="trip__per">${esc(per)}</span>
+          <span class="trip__per">${money(esc(per))}</span>
           ${shared ? '' : `
           <div class="trip__qty" role="group" aria-label="${esc(unit)}">
             <span class="trip__qk">${esc(unit)}</span>
@@ -279,7 +280,7 @@ export function initTrip({ data, lang, t, asset, page = 'index.html' }) {
           </div>`}
         </div>
         <div class="trip__end">
-          <span class="trip__line">${esc(price(item.price * qty))}</span>
+          <span class="trip__line">${money(esc(price(item.price * qty)))}</span>
           ${shared ? '' : `<button type="button" class="trip__rm" aria-label="${esc(L.removeAria(name))}">${ICON.x}<span>${esc(L.remove)}</span></button>`}
         </div>
       </li>`;
@@ -292,7 +293,7 @@ export function initTrip({ data, lang, t, asset, page = 'index.html' }) {
     navBtn.classList.toggle('has-items', n > 0);
     bar.hidden = n === 0;
     bar.setAttribute('aria-label', `${L.open} (${L.items(n)})`);
-    bar.innerHTML = `${ICON.trip}<span class="trip-bar__t">${esc(L.bar)}</span><b class="trip-bar__n">${n}</b><span class="trip-bar__sum">${esc(price(total()))}</span>${ICON.arrow}`;
+    bar.innerHTML = `${ICON.trip}<span class="trip-bar__t">${esc(L.bar)}</span><b class="trip-bar__n">${n}</b><span class="trip-bar__sum">${money(esc(price(total())))}</span>${ICON.arrow}`;
 
     const view = shared
       ? shared.map((x) => ({ ...x, item: cat.get(x.id) })).sort((a, b) => (stopBy[a.item.stop]?.n ?? 99) - (stopBy[b.item.stop]?.n ?? 99))
@@ -313,7 +314,7 @@ export function initTrip({ data, lang, t, asset, page = 'index.html' }) {
           : `<div class="trip__empty"><span class="trip__empty-i">${ICON.trip}</span><p class="trip__empty-t">${esc(L.empty)}</p><p class="trip__empty-h">${esc(L.emptyHint)}</p></div>`}
         ${view.length
           ? `<footer class="trip__foot">
-              <p class="trip__total"><span>${esc(L.total)}</span><b>${esc(price(sum))}</b></p>
+              <p class="trip__total"><span>${esc(L.total)}</span><b>${money(esc(price(sum)))}</b></p>
               ${shared
                 ? `<div class="trip__acts">
                     <button type="button" class="nt-btn trip__go" data-shared="replace">${esc(L.replace)}</button>
