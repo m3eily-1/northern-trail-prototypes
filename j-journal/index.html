@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Trail Field Journal</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var ar = p.get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || p.has('reduced');
+      var seen = false;
+      try { seen = sessionStorage.getItem('nt-j-journal-pen') === '1'; } catch (e) {}
+      if (p.has('intro')) seen = false;
+      if (reduced) d.classList.add('is-reduced');
+      if (!reduced && !seen && !p.has('nointro')) d.classList.add('has-loader');
+      else d.classList.add('is-ready');
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="host-bar">
+    <span>webook</span>
+    <nav class="lang" aria-label="Language">
+      <a class="lang__btn" data-lang="en" href="?lang=en" hreflang="en">EN</a>
+      <a class="lang__btn" data-lang="ar" href="?lang=ar" hreflang="ar">AR</a>
+    </nav>
+  </div>
+
+  <!-- Paper grain filter (shared) -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="pen-rough" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Loading moment: one pen stroke draws the route and the logo frame -->
+  <div class="loader" id="loader" aria-hidden="true"></div>
+
+  <div class="nt" id="app">
+    <main>
+      <section class="hero" id="hero" aria-labelledby="hero-title"></section>
+      <section class="field" id="intro" aria-label="Northern Trail at a glance"></section>
+      <section class="journal" id="stops" aria-labelledby="journal-title"></section>
+      <section class="pr pr--tours" id="tours" aria-labelledby="tours-title"></section>
+      <section class="pr pr--stays" id="stays" aria-labelledby="stays-title"></section>
+      <section class="pr pr--tips" id="tips" aria-labelledby="tips-title"></section>
+      <section class="pr pr--faq" id="faq" aria-labelledby="faq-title"></section>
+      <section class="closing" id="closing" aria-labelledby="closing-title"></section>
+    </main>
+  </div>
+</body>
+</html>

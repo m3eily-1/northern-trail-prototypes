@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northern Trail · Kinetic type</title>
+<script>
+  (function () {
+    var ar = new URLSearchParams(location.search).get('lang') === 'ar';
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    var skip = false;
+    try { skip = sessionStorage.getItem('nt-g-intro') === '1'; } catch (e) {}
+    if (new URLSearchParams(location.search).get('intro') === '1') skip = false;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) skip = true;
+    document.documentElement.classList.add(skip ? 'no-intro' : 'has-intro');
+  })();
+</script>
+<link rel="icon" href="data:,">
+<link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/brand.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="practical.css">
+</head>
+<body>
+<div class="host-bar">webook</div>
+
+<div class="nt" id="page">
+
+  <!-- Loading moment: counter + letters locking in (once per session) -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <p class="loader__en" lang="en" dir="ltr" data-split="en">NORTHERN TRAIL</p>
+      <p class="loader__count"><span class="loader__num">0</span><span class="loader__unit" data-i18n="km">km</span></p>
+      <p class="loader__ar" lang="ar" dir="rtl" data-split="ar">مسار الشمال</p>
+    </div>
+  </div>
+
+  <!-- HERO: split bilingual composition, film window widens (pinned) -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero__inner nt-wrap">
+      <header class="hero__bar">
+        <img class="hero__logo" src="../assets/svg/logo-dark.svg" width="296" height="165" alt="Northern Trail">
+        <nav class="lang" aria-label="Language">
+          <a class="lang__opt" href="?lang=en" hreflang="en" lang="en">EN</a>
+          <a class="lang__opt" href="?lang=ar" hreflang="ar" lang="ar">ع</a>
+        </nav>
+      </header>
+      <div class="hero__grid">
+        <div class="hero__col hero__col--start">
+          <p class="hero__name" data-name="primary"></p>
+          <div class="hero__copy">
+            <h1 class="hero__title" id="hero-title"></h1>
+            <p class="hero__sub"></p>
+            <a class="nt-btn hero__cta" href="#stops"></a>
+          </div>
+        </div>
+        <div class="hero__window">
+          <div class="hero__film">
+            <video class="hero__video" muted playsinline loop preload="metadata"></video>
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__caption" aria-hidden="true">
+              <p class="hero__cap-title"></p>
+              <p class="hero__cap-sub"></p>
+            </div>
+          </div>
+          <button class="hero__pause" type="button" aria-pressed="false">
+            <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.5" height="12"/><rect x="11.5" y="4" width="3.5" height="12"/></svg>
+            <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+            <span class="sr-only"></span>
+          </button>
+        </div>
+        <div class="hero__col hero__col--end">
+          <p class="hero__cue"><span class="hero__cue-bar" aria-hidden="true"></span><span data-i18n="scroll"></span></p>
+          <p class="hero__name" data-name="secondary"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE: 16 names, both scripts, opposite directions -->
+  <section class="mq" id="marquee" aria-hidden="true">
+    <div class="mq__row mq__row--a"><div class="mq__track"></div></div>
+    <div class="mq__row mq__row--b"><div class="mq__track"></div></div>
+  </section>
+
+  <!-- INTRO + giant kinetic stats -->
+  <section class="intro" id="intro" aria-labelledby="intro-title">
+    <div class="nt-wrap">
+      <div class="intro__head">
+        <h2 class="nt-h2 intro__title" id="intro-title"></h2>
+        <p class="nt-lede intro__body"></p>
+      </div>
+      <ol class="stats"></ol>
+    </div>
+  </section>
+
+  <!-- PILLARS: colour-block bands -->
+  <section class="pillars" id="pillars" aria-label="Pillars"></section>
+
+  <!-- STOPS: bento grid with region filter + FLIP -->
+  <section class="stops" id="stops" aria-labelledby="stops-title">
+    <div class="nt-wrap">
+      <div class="stops__head">
+        <h2 class="nt-h2 stops__title" id="stops-title"></h2>
+        <p class="stops__count" aria-live="polite"></p>
+      </div>
+      <div class="stops__bar">
+        <div class="seg" role="group">
+          <span class="seg__ind" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="bento"></div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL: tours, stays, tips, FAQ (rendered by js/practical.js) -->
+  <section class="px px--tours" id="tours"></section>
+  <section class="px px--stays" id="stays"></section>
+  <section class="px px--tips" id="tips"></section>
+  <section class="px px--faq" id="faq"></section>
+
+  <!-- CLOSING -->
+  <section class="closing" id="closing" aria-labelledby="closing-tag">
+    <div class="nt-wrap">
+      <p class="closing__tag" id="closing-tag" lang="ar" dir="rtl"></p>
+      <div class="closing__foot">
+        <p class="closing__line"></p>
+        <img class="closing__logo" src="../assets/svg/logo-cream.svg" width="296" height="165" alt="Northern Trail">
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-screen stop takeover -->
+  <div class="to" id="takeover" role="dialog" aria-modal="true" aria-labelledby="to-name" hidden>
+    <div class="to__media"><img class="to__img" alt=""></div>
+    <div class="to__panel">
+      <div class="to__top">
+        <p class="to__meta"></p>
+        <button class="to__close" type="button">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg>
+          <span class="sr-only" data-i18n="close"></span>
+        </button>
+      </div>
+      <div class="to__body">
+        <h3 class="to__name" id="to-name"></h3>
+        <p class="to__alt"></p>
+        <dl class="to__facts"></dl>
+        <p class="to__desc"></p>
+      </div>
+      <div class="to__nav">
+        <button class="to__prev" type="button"><svg class="flip" viewBox="0 0 20 20" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg><span data-i18n="prev"></span></button>
+        <button class="to__next" type="button"><span data-i18n="next"></span><svg class="flip" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <img class="to__sticker" alt="">
+  </div>
+</div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

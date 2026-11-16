@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Trail: Desert Wind</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var ar = p.get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || p.has('reduced');
+      d.classList.add(reduced ? 'is-reduced' : 'is-motion');
+      if (!reduced && !p.has('nointro')) d.classList.add('has-loader');
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="host-bar">
+    <span class="host-bar__brand">webook</span>
+    <nav class="lang" aria-label="Language">
+      <a class="lang__btn" data-lang="en" href="?lang=en" hreflang="en" lang="en">EN</a>
+      <a class="lang__btn" data-lang="ar" href="?lang=ar" hreflang="ar" lang="ar">AR</a>
+    </nav>
+  </div>
+
+  <div class="nt" id="app">
+    <main>
+      <section class="hero" id="hero" aria-labelledby="hero-title"></section>
+      <section class="intro" id="intro" aria-labelledby="intro-title"></section>
+      <section class="pillars" id="pillars" aria-label="Pillars"></section>
+      <section class="stops" id="stops" aria-labelledby="stops-title"></section>
+      <section class="pr pr--tours" id="tours" aria-labelledby="tours-title"></section>
+      <section class="pr pr--stays" id="stays" aria-labelledby="stays-title"></section>
+      <section class="pr pr--tips" id="tips" aria-labelledby="tips-title"></section>
+      <section class="pr pr--faq" id="faq" aria-labelledby="faq-title"></section>
+      <section class="closing" id="closing" aria-labelledby="closing-title"></section>
+    </main>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="gauge" aria-hidden="true"></div>
+</body>
+</html>

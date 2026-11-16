@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Northern Trail · Golden hour</title>
+  <script>
+    (function () {
+      var ar = new URLSearchParams(location.search).get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) d.classList.add('rm');
+      var seen = false;
+      try { seen = sessionStorage.getItem('nt-f-dawn') === '1'; } catch (e) {}
+      if (!seen && !reduce) d.classList.add('is-loading');
+    })();
+  </script>
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="host-bar">webook</div>
+
+  <div class="nt gh" id="app">
+    <!-- Loading moment: sunrise over a flat horizon -->
+    <div class="loader" data-loader aria-hidden="true">
+      <div class="loader__sky"></div>
+      <img class="loader__logo" src="../assets/svg/logo-cream.svg" alt="" width="296" height="165">
+      <div class="loader__sunbox"><div class="loader__sun"></div></div>
+      <div class="loader__line"></div>
+      <div class="loader__foot">
+        <p class="loader__pct"><span data-pct>0</span><span class="loader__u">%</span></p>
+        <p class="loader__label" data-loader-label></p>
+      </div>
+    </div>
+
+    <div class="day" data-day>
+      <!-- the illustrated landscape: sticky backdrop for the whole day -->
+      <div class="scene" data-scene aria-hidden="true"></div>
+
+      <!-- Hero -->
+      <section class="hero" data-hero>
+        <div class="hero__stick">
+          <video class="hero__film" data-film muted playsinline loop></video>
+          <div class="hero__scrim"></div>
+          <div class="hero__top nt-wrap">
+            <img class="hero__logo" src="../assets/svg/logo-cream.svg" alt="Northern Trail" width="296" height="165">
+            <nav class="lang" data-lang></nav>
+          </div>
+          <div class="hero__content nt-wrap">
+            <h1 class="hero__title" data-hero-title></h1>
+            <div class="hero__foot">
+              <p class="hero__sub" data-hero-sub></p>
+              <div class="hero__actions">
+                <a class="nt-btn nt-btn--light hero__cta" href="#journey" data-hero-cta></a>
+                <button class="icon-btn" type="button" data-pause></button>
+              </div>
+            </div>
+          </div>
+          <div class="hero__cue" aria-hidden="true"><span data-scroll-label></span><i></i></div>
+        </div>
+      </section>
+
+      <!-- Intro: stats + three pillars, before dawn -->
+      <section class="intro" id="intro" data-intro>
+        <div class="nt-wrap">
+          <div class="intro__top">
+            <h2 class="nt-h2 intro__title" data-intro-title data-reveal></h2>
+            <p class="nt-lede intro__body" data-intro-body data-reveal></p>
+          </div>
+          <ul class="stats" data-stats></ul>
+          <ul class="pillars" data-pillars></ul>
+        </div>
+      </section>
+
+      <!-- Journey: 16 stops from 06:00 to nightfall -->
+      <section class="journey" id="journey" data-journey>
+        <div class="nt-wrap journey__wrap">
+          <h2 class="journey__title" data-journey-title></h2>
+          <div class="stops" data-stops></div>
+        </div>
+      </section>
+
+      <!-- Practical sections: the night goes on (tours, stays, tips, FAQ) -->
+      <div class="night" data-night></div>
+
+      <!-- Closing under the stars -->
+      <section class="closing" data-closing>
+        <div class="closing__scene" data-scene-night aria-hidden="true"></div>
+        <div class="nt-wrap closing__wrap">
+          <p class="closing__tag" lang="ar" dir="rtl" data-tagline data-reveal></p>
+          <p class="closing__line" data-closing-line data-reveal></p>
+          <img class="closing__logo" data-logo alt="Northern Trail" width="296" height="165" data-reveal>
+          <nav class="lang lang--foot" data-lang></nav>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

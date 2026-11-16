@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Northern Trail · 3D flyover</title>
+<meta name="description" content="Fly the Northern Trail from Diriyah to Jubbah over a 3D map of the north.">
+<link rel="icon" href="data:,">
+<link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/brand.css">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Language + render mode are decided before first paint to avoid a flash.
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var ar = q.get('lang') === 'ar';
+    var h = document.documentElement;
+    h.lang = ar ? 'ar' : 'en';
+    h.dir = ar ? 'rtl' : 'ltr';
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches || q.has('static');
+    var gl = false;
+    try { var c = document.createElement('canvas'); gl = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) {}
+    h.classList.add(rm || !gl ? 'mode-static' : 'mode-3d');
+    if (rm) h.classList.add('is-reduced');
+    var seen = false;
+    try { seen = sessionStorage.getItem('nt-d-loaded') === '1'; } catch (e) {}
+    if (!rm && gl && !seen && !q.has('noloader')) h.classList.add('is-loading');
+  })();
+</script>
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<div class="host-bar">webook</div>
+<main class="nt" id="nt">
+
+  <div class="loader" id="loader" aria-live="polite">
+    <div class="loader__inner">
+      <img class="loader__logo" src="../assets/svg/logo-dark.svg" alt="" width="296" height="165">
+      <div class="loader__count"><span id="loader-num">0</span><span class="loader__pct">%</span></div>
+      <div class="loader__bar"><span id="loader-bar"></span></div>
+      <p class="loader__label" id="loader-label"></p>
+    </div>
+  </div>
+
+  <div class="flight" id="flight">
+    <div class="stage" id="stage" aria-hidden="false">
+      <div class="labels" id="labels" aria-hidden="true"></div>
+      <div class="hud" id="hud"></div>
+    </div>
+
+    <div class="flow" id="flow">
+      <section class="hero" id="hero"></section>
+      <section class="intro" id="intro"></section>
+      <section class="pillars" id="pillars"></section>
+      <section class="track" id="track"></section>
+      <div class="outro" id="outro" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <section class="smap" id="smap" hidden></section>
+  <div class="prac" id="prac"></div>
+  <section class="closing" id="closing"></section>
+</main>
+</body>
+</html>

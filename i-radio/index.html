@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Northern Trail · Road-trip radio</title>
+<link rel="icon" href="data:,">
+<link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/brand.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="practical.css">
+<script>
+  (function () {
+    var ar = new URLSearchParams(location.search).get('lang') === 'ar';
+    var h = document.documentElement;
+    h.lang = ar ? 'ar' : 'en';
+    h.dir = ar ? 'rtl' : 'ltr';
+    var seen = false;
+    try { seen = sessionStorage.getItem('nt-radio-intro') === '1'; } catch (e) {}
+    var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!seen && !rm && !/[?&]noloader/.test(location.search)) h.classList.add('is-loading');
+  })();
+</script>
+</head>
+<body>
+<div class="host-bar">webook</div>
+
+<div class="nt rp" id="app">
+  <!-- Loader: radio display powering on -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__panel">
+      <div class="loader__glass">
+        <div class="loader__row">
+          <span class="loader__nt">NT</span>
+          <span class="seg loader__digits" id="loaderDigits"></span>
+        </div>
+        <div class="loader__band"><span class="loader__needle"></span></div>
+        <div class="loader__foot">
+          <span class="loader__sig"><i></i><i></i><i></i><i></i><i></i></span>
+          <img class="loader__logo" src="../assets/svg/logo-cream.svg" alt="" width="296" height="165">
+        </div>
+        <span class="loader__static"></span>
+      </div>
+    </div>
+    <button class="loader__skip" type="button" id="loaderSkip">Skip</button>
+  </div>
+
+  <header class="hero" id="hero"></header>
+  <section class="intro" id="intro"></section>
+  <section class="tapes" id="tapes"></section>
+  <section class="radio" id="radio"></section>
+  <section class="px px--tours" id="tours"></section>
+  <section class="px px--stays" id="stays"></section>
+  <section class="px px--tips" id="tips"></section>
+  <section class="px px--faq" id="faq"></section>
+  <footer class="closing" id="closing"></footer>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

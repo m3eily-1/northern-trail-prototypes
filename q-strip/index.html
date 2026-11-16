@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Trail Strip Map</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/content.json" as="fetch" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css?v=14">
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var ar = p.get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || p.has('reduced');
+      if (reduced) d.classList.add('is-reduced');
+      if (!reduced && !p.has('nointro')) d.classList.add('has-loader');
+    })();
+  </script>
+  <script type="module" src="app.js?v=14"></script>
+</head>
+<body>
+  <div class="host-bar">
+    <span class="host-bar__brand">webook</span>
+    <nav class="lang" aria-label="Language">
+      <a class="lang__btn" data-lang="en" href="?lang=en" hreflang="en" lang="en">EN</a>
+      <a class="lang__btn" data-lang="ar" href="?lang=ar" hreflang="ar" lang="ar">AR</a>
+    </nav>
+  </div>
+
+  <!-- Loading moment: a road line draws under the logo and a car rides it -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <img class="loader__logo" src="../assets/svg/logo-dark.svg" alt="" width="176" height="98">
+    <div class="loader__road"><span class="loader__fill"></span><span class="loader__car"></span></div>
+  </div>
+
+  <div class="nt" id="app">
+    <main>
+      <section class="hero" id="hero" aria-labelledby="hero-title"></section>
+      <section class="board" id="route" aria-labelledby="route-title"></section>
+      <section class="about" id="about" aria-labelledby="about-title"></section>
+      <div class="practical">
+        <div class="practical__in nt-wrap">
+          <section class="tips" id="tips" aria-labelledby="tips-title"></section>
+          <section class="faq" id="faq" aria-labelledby="faq-title"></section>
+        </div>
+      </div>
+      <section class="closing" id="closing" aria-labelledby="closing-title"></section>
+    </main>
+  </div>
+</body>
+</html>

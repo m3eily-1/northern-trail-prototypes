@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Trail Rock Art</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var ar = p.get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || p.has('reduced');
+      if (reduced) d.classList.add('is-reduced');
+      if (!reduced && !p.has('nointro')) d.classList.add('has-loader');
+      else d.classList.add('is-ready');
+      if (matchMedia('(hover: none), (pointer: coarse)').matches) d.classList.add('is-touch');
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="host-bar">
+    <span class="host-bar__brand">webook</span>
+    <nav class="lang" aria-label="Language">
+      <a class="lang__btn" data-lang="en" href="?lang=en" hreflang="en" lang="en">EN</a>
+      <a class="lang__btn" data-lang="ar" href="?lang=ar" hreflang="ar" lang="ar">AR</a>
+    </nav>
+  </div>
+
+  <!-- Loading moment: a camel is pecked into the rock, then the torch is lit -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <canvas class="loader__canvas"></canvas>
+    <p class="loader__label"></p>
+    <span class="loader__bar"><i></i></span>
+  </div>
+
+  <!-- The torch: warm light that follows the pointer (fixed, compositor-only) -->
+  <div class="torch" id="torch" aria-hidden="true"><i class="torch__glow"></i><i class="torch__core"></i></div>
+
+  <div class="nt rock" id="app">
+    <main>
+      <section class="hero" id="hero" aria-labelledby="hero-title"></section>
+      <section class="intro" id="intro" aria-labelledby="intro-title"></section>
+      <section class="pillars" id="pillars" aria-labelledby="pillars-title"></section>
+      <section class="route" id="stops" aria-labelledby="route-title"></section>
+      <section class="pr pr--tours" id="tours" aria-labelledby="tours-title"></section>
+      <section class="pr pr--stays" id="stays" aria-labelledby="stays-title"></section>
+      <section class="pr pr--tips" id="tips" aria-labelledby="tips-title"></section>
+      <section class="pr pr--faq" id="faq" aria-labelledby="faq-title"></section>
+      <section class="closing" id="closing" aria-labelledby="closing-title"></section>
+    </main>
+  </div>
+</body>
+</html>

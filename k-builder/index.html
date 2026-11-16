@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Trail Trip Builder</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var ar = p.get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || p.has('reduced');
+      var seen = false;
+      try { seen = sessionStorage.getItem('nt-k-deck') === '1'; } catch (e) {}
+      if (p.has('deck')) seen = false;
+      if (!reduced && !seen && !p.has('nodeck')) d.classList.add('has-deck');
+      if (reduced) d.classList.add('is-reduced');
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="host-bar">webook</div>
+
+  <!-- Loading moment: the 16 stops shuffle like a deck, then fan out -->
+  <div class="k-deck" aria-hidden="true"><div class="k-deck__table"></div></div>
+
+  <div class="nt k-page" id="app">
+    <main>
+      <section class="k-hero" id="hero" aria-labelledby="hero-title"></section>
+      <section class="k-intro" id="intro" aria-labelledby="intro-title"></section>
+      <section class="k-plan" id="plan" aria-labelledby="plan-title"></section>
+      <section class="kx kx--tours" id="tours" aria-labelledby="tours-title"></section>
+      <section class="kx kx--stays" id="stays" aria-labelledby="stays-title"></section>
+      <section class="kx kx--tips" id="tips" aria-labelledby="tips-title"></section>
+      <section class="kx kx--faq" id="faq" aria-labelledby="faq-title"></section>
+      <section class="k-close" id="closing" aria-labelledby="closing-title"></section>
+    </main>
+  </div>
+
+  <div class="k-live" aria-live="polite" role="status"></div>
+</body>
+</html>

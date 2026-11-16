@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Northern Trail · The Drive</title>
+  <script>
+    (function () {
+      var ar = new URLSearchParams(location.search).get('lang') === 'ar';
+      document.documentElement.lang = ar ? 'ar' : 'en';
+      document.documentElement.dir = ar ? 'rtl' : 'ltr';
+      var seen = false;
+      try { seen = sessionStorage.getItem('nt-a-ignition') === '1'; } catch (e) {}
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!seen && !reduce) document.documentElement.classList.add('is-loading');
+    })();
+  </script>
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="host-bar">webook</div>
+
+  <div class="nt drive-page" id="app">
+    <!-- Loader: dashboard ignition -->
+    <div class="loader" data-loader aria-hidden="true">
+      <div class="loader__inner">
+        <img class="loader__logo" src="../assets/svg/logo-cream.svg" alt="" width="296" height="165">
+        <div class="loader__dash">
+          <span class="loader__odo" data-loader-odo></span>
+          <span class="loader__unit" data-t="km"></span>
+        </div>
+        <div class="loader__start" data-loader-start>
+          <span class="loader__lamp"></span>
+          <span data-t="start"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" data-hero>
+      <video class="hero__film" data-film muted playsinline loop preload="auto" poster="../assets/img/hero-poster.jpg"></video>
+      <div class="hero__scrim"></div>
+      <div class="hero__top">
+        <img class="hero__logo" src="../assets/svg/logo-cream.svg" alt="Northern Trail" width="296" height="165">
+        <div class="hero__controls">
+          <nav class="lang" data-lang aria-label="Language"></nav>
+          <button class="icon-btn" type="button" data-pause></button>
+        </div>
+      </div>
+      <div class="hero__content nt-wrap">
+        <h1 class="hero__title" data-hero-title></h1>
+        <div class="hero__foot">
+          <p class="hero__sub" data-hero-sub></p>
+          <a class="nt-btn nt-btn--light hero__cta" href="#drive" data-hero-cta></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro: stats + pillars -->
+    <section class="intro" data-intro></section>
+
+    <!-- Journey: the road, the stops, the arrival -->
+    <div class="journey" data-journey>
+      <!-- Dashboard HUD: sticky under the host header, only while the road runs -->
+      <div class="hud" data-hud aria-hidden="true"></div>
+      <div class="road-layer" aria-hidden="true">
+        <svg class="road" data-road xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div class="car" data-car aria-hidden="true"></div>
+      <section class="drive" id="drive" data-drive></section>
+      <div class="arrival" data-arrival></div>
+    </div>
+
+    <!-- Service area: tours, stays, tips, FAQs -->
+    <div class="services" data-services></div>
+
+    <section class="closing" data-closing></section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

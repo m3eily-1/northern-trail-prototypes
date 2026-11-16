@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Trail Passport</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var ar = p.get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var seen = false;
+      try { seen = sessionStorage.getItem('ntp-cover') === '1'; } catch (e) {}
+      if (p.has('cover')) seen = false;
+      if (!reduced && !seen && !p.has('nocover')) d.classList.add('has-cover');
+      if (reduced) d.classList.add('is-reduced');
+    })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="host-bar">webook</div>
+
+  <div class="nt page" id="app">
+    <!-- Loading moment: passport cover (once per session) -->
+    <div class="cover" aria-hidden="true">
+      <div class="cover__stage">
+        <div class="cover__book">
+          <div class="cover__page">
+            <p class="cover__page-head"><span data-l="en">Northern Trail Passport</span><span data-l="ar">جواز مسار الشمال</span></p>
+            <div class="cover__page-grid">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="cover__front">
+            <div class="cover__face cover__face--out">
+              <p class="cover__label"><span data-l="en">Passport</span><span data-l="ar">جواز سفر</span></p>
+              <div class="cover__logo">
+                <img src="../assets/svg/logo-cream.svg" alt="">
+                <span class="cover__sheen"><i></i></span>
+              </div>
+              <span class="cover__chip"><i></i></span>
+            </div>
+            <div class="cover__face cover__face--in"></div>
+          </div>
+        </div>
+        <button class="cover__skip" type="button" tabindex="-1"><span data-l="en">Skip</span><span data-l="ar">تخطَّ</span></button>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero" id="hero" data-section="hero"></section>
+      <section class="intro" id="intro" data-section="intro"></section>
+      <section class="stops" id="stops" data-section="stops"></section>
+      <div class="travel" id="travel" data-section="practical"></div>
+      <section class="close" id="closing" data-section="closing"></section>
+    </main>
+  </div>
+</body>
+</html>

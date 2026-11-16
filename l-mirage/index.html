@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Northern Trail · Desert mirage</title>
+  <script>
+    (function () {
+      var ar = new URLSearchParams(location.search).get('lang') === 'ar';
+      var d = document.documentElement;
+      d.lang = ar ? 'ar' : 'en';
+      d.dir = ar ? 'rtl' : 'ltr';
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) d.classList.add('rm');
+      var seen = false;
+      try { seen = sessionStorage.getItem('nt-l-loaded') === '1'; } catch (e) {}
+      if (!seen && !reduce) d.classList.add('is-loading');
+    })();
+  </script>
+  <link rel="preload" href="../assets/fonts/bukra-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" crossorigin>
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="host-bar">webook</div>
+
+  <div class="nt mi" id="app">
+    <!-- Loading moment: heat haze resolving into the logo (SVG displacement, no dependency) -->
+    <div class="loader" data-loader aria-hidden="true">
+      <svg class="loader__defs" width="0" height="0" focusable="false">
+        <filter id="mi-haze" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+          <feTurbulence data-turb type="fractalNoise" baseFrequency="0.006 0.05" numOctaves="2" seed="4" result="n"></feTurbulence>
+          <feDisplacementMap data-disp in="SourceGraphic" in2="n" scale="90" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+      </svg>
+      <div class="loader__glow"></div>
+      <img class="loader__logo" data-loader-logo src="../assets/svg/logo-cream.svg" alt="" width="296" height="165">
+      <div class="loader__foot">
+        <p class="loader__label" data-loader-label></p>
+        <p class="loader__pct"><span data-pct>0</span><span class="loader__u">%</span></p>
+      </div>
+      <div class="loader__bar"><span data-loader-bar></span></div>
+    </div>
+
+    <!-- One shared WebGL canvas for hero film, stop planes, pillar fields and dunes -->
+    <canvas class="gl" data-gl aria-hidden="true"></canvas>
+
+    <main id="main">
+      <section class="hero" data-section="hero"></section>
+      <section class="intro" data-section="intro"></section>
+      <section class="stops" id="stops" data-section="stops"></section>
+      <section class="pillars" data-section="pillars"></section>
+      <section class="lx lx--tours" id="tours" aria-labelledby="tours-title"></section>
+      <section class="lx lx--stays" id="stays" aria-labelledby="stays-title"></section>
+      <section class="lx lx--tips" id="tips" aria-labelledby="tips-title"></section>
+      <section class="lx lx--faq" id="faq" aria-labelledby="faq-title"></section>
+      <section class="closing" data-section="closing"></section>
+    </main>
+
+    <nav class="prog" data-prog aria-hidden="true"></nav>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
