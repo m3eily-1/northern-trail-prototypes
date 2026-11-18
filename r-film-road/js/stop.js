@@ -3,9 +3,9 @@
 // what can be booked comes from content.json (webook tours, priced stays, bundles) and goes into
 // the same trip list as the landing page.
 //
-// Sections: hero, sticky "on this page" tabs, overview with the trail ruler, getting there and
-// weather, places to discover, book here (postcards) and bundles, more to do, dining, stays,
-// visitor tips and FAQs (shared with the landing page, practical.js), previous and next stop.
+// Sections: hero, sticky "on this page" tabs, overview, then what can be
+// booked (book here postcards, bundles, stays), getting there and weather, places to discover,
+// more to do, dining, visitor tips and FAQs (shared with the landing page, practical.js), previous and next stop.
 import { pad2, LABELS } from './labels.js?v=27';
 import { initWebook } from './webook.js?v=27';
 import { initTrip, TRIP_ICON } from './trip.js?v=27';
@@ -196,12 +196,12 @@ async function boot() {
   };
   const tabs = [
     ['overview', L.overview, true],
+    ['book', L.book, has.book],
+    ['stay', L.stay, has.stay],
     ['getting-there', L.getting, has.getting],
     ['places', L.places, has.places],
-    ['book', L.book, has.book],
     ['more', L.more, has.more],
     ['dining', L.dining, has.dining],
-    ['stay', L.stay, has.stay],
     ['tips', L.tips, has.tips],
     ['faq', L.faq, has.faq],
   ].filter((x) => x[2]);
@@ -230,20 +230,6 @@ async function boot() {
   const heroImgM = P.heroM ? asset(P.heroM) : heroImg;
   const drive = s.drive && prev ? L.fromPrev(t(s.drive), t(prev.name)) : L.start;
 
-  // the trail ruler: every stop as a link, this one marked, region breaks between groups
-  const ruler = `
-    <nav class="sp-ruler" aria-label="${esc(L.rulerAria)}">
-      <ol class="sp-ruler__list">
-        ${data.stops
-          .map((x, i) => {
-            const br = i > 0 && data.stops[i - 1].region !== x.region ? ' is-break' : '';
-            const cur = x.key === key;
-            return `<li class="sp-ruler__i${br}${cur ? ' is-current' : ''}${i < idx ? ' is-past' : ''}"><a href="${stopHref(x.key)}" aria-label="${esc(L.goStop(pad2(x.n), t(x.name)))}"${cur ? ' aria-current="page"' : ''}><i></i><span>${pad2(x.n)}</span></a></li>`;
-          })
-          .join('')}
-      </ol>
-    </nav>`;
-
   const seasons = P.weather || [];
   const tmax = 50;
 
@@ -255,6 +241,8 @@ async function boot() {
       </picture>
       <div class="sp-hero__scrim"></div>
       <div class="nt-wrap sp-hero__in">
+        <div class="sp-hero__top">
+        <a class="sp-hero__logo" href="index.html?lang=${lang}" aria-label="${esc(L.trail)}"><img src="../assets/svg/logo-cream.svg" alt="" width="296" height="165"></a>
         <nav class="sp-crumbs" aria-label="Breadcrumb">
           <ol>
             <li><a href="index.html?lang=${lang}#stops">${esc(L.trail)}</a></li>
@@ -262,6 +250,7 @@ async function boot() {
             <li><span aria-current="page">${esc(name)}</span></li>
           </ol>
         </nav>
+        </div>
         <div class="sp-hero__copy">
           <p class="sp-hero__k"><b>${pad2(s.n)}</b><span>${esc(L.stopOf(pad2(s.n), total))} · ${esc(regionName)}</span></p>
           <h1 class="sp-hero__title" id="sp-title">${esc(name)}</h1>
@@ -294,12 +283,48 @@ async function boot() {
             ${(P.tags || []).length ? `<ul class="sp-tags">${P.tags.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
           </div>
         </div>
-        <div class="sp-about__trail sp-rv">
-          <p class="sp-k">${esc(L.onTrail)}</p>
-          ${ruler}
-        </div>
       </div>
     </section>
+
+    ${has.book ? `
+    <section class="sp-sec sp-book post" id="book" aria-labelledby="sp-bk-t">
+      <div class="nt-wrap">
+        ${toursHere.length ? head('sp-bk-t', L.bookTitle(name), L.bookSub) : head('sp-bk-t', L.nearTitle(regionName), L.nearSub(name))}
+        <ul class="pt-grid sp-pt" role="list"></ul>
+        <div class="pp__more-row"><button class="nt-btn sp-pt__more" type="button" aria-expanded="false" hidden></button></div>
+      </div>
+    </section>` : ''}
+    <section class="bn sp-bn" id="sp-bundles" aria-labelledby="sp-bn-t"></section>
+
+    ${has.stay ? `
+    <section class="sp-sec bk bk--stays sp-stay" id="stay" aria-labelledby="sp-st-t">
+      <div class="nt-wrap">
+        ${staysVS.length ? head('sp-st-t', P.staysTitle || L.stayTitle(name), L.staySub) : head('sp-st-t', L.stayNear(regionName), L.stayNearSub)}
+        <ul class="bk__grid">
+          ${staysVS.length
+            ? staysVS.map((c) => bkCard({
+                href: c.match ? null : isWeb(c.url) ? c.url : null,
+                photo: asset(c.img),
+                meta: `${L.stayK} · ${c.city || name}`,
+                title: c.t,
+                place: c.city || name,
+                price: c.match?.priceFrom != null ? L.night(num(c.match.priceFrom)) : '',
+                newTab: L.newTab,
+                after: c.match ? ctx.trip.button(`s:${c.match.key}`) : '',
+              })).join('')
+            : staysRegion.map((x) => bkCard({
+                href: null,
+                photo: asset(x.photo),
+                meta: `${L.stayK} · ${t(x.city)}`,
+                title: t(x.name),
+                place: t(x.city),
+                price: x.priceFrom != null ? L.night(num(x.priceFrom)) : '',
+                newTab: L.newTab,
+                after: x.priceFrom != null ? ctx.trip.button(`s:${x.key}`) : '',
+              })).join('')}
+        </ul>
+      </div>
+    </section>` : ''}
 
     ${has.getting ? `
     <div class="sadu sadu--deep" aria-hidden="true"></div>
@@ -334,16 +359,6 @@ async function boot() {
       </div>
     </section>` : ''}
 
-    ${has.book ? `
-    <section class="sp-sec sp-book post" id="book" aria-labelledby="sp-bk-t">
-      <div class="nt-wrap">
-        ${toursHere.length ? head('sp-bk-t', L.bookTitle(name), L.bookSub) : head('sp-bk-t', L.nearTitle(regionName), L.nearSub(name))}
-        <ul class="pt-grid sp-pt" role="list"></ul>
-        <div class="pp__more-row"><button class="nt-btn sp-pt__more" type="button" aria-expanded="false" hidden></button></div>
-      </div>
-    </section>` : ''}
-    <section class="bn sp-bn" id="sp-bundles" aria-labelledby="sp-bn-t"></section>
-
     ${has.more ? `
     <section class="sp-sec sp-more" id="more" aria-labelledby="sp-mo-t">
       <div class="nt-wrap">
@@ -357,36 +372,6 @@ async function boot() {
       <div class="nt-wrap">
         ${(P.dining || []).length ? `${head('sp-di-t', P.diningTitle)}<ul class="sp-grid">${P.dining.map((c, i) => placeCard(c, i)).join('')}</ul>` : ''}
         ${(P.extra || []).map((x, i) => `<div class="sp-extra">${head(`sp-ex-${i}`, x.title)}<ul class="sp-grid">${x.cards.map((c, i) => placeCard(c, i)).join('')}</ul></div>`).join('')}
-      </div>
-    </section>` : ''}
-
-    ${has.stay ? `
-    <section class="sp-sec bk bk--stays sp-stay" id="stay" aria-labelledby="sp-st-t">
-      <div class="nt-wrap">
-        ${staysVS.length ? head('sp-st-t', P.staysTitle || L.stayTitle(name), L.staySub) : head('sp-st-t', L.stayNear(regionName), L.stayNearSub)}
-        <ul class="bk__grid">
-          ${staysVS.length
-            ? staysVS.map((c) => bkCard({
-                href: c.match ? null : isWeb(c.url) ? c.url : null,
-                photo: asset(c.img),
-                meta: `${L.stayK} · ${c.city || name}`,
-                title: c.t,
-                place: c.city || name,
-                price: c.match?.priceFrom != null ? L.night(num(c.match.priceFrom)) : '',
-                newTab: L.newTab,
-                after: c.match ? ctx.trip.button(`s:${c.match.key}`) : '',
-              })).join('')
-            : staysRegion.map((x) => bkCard({
-                href: null,
-                photo: asset(x.photo),
-                meta: `${L.stayK} · ${t(x.city)}`,
-                title: t(x.name),
-                place: t(x.city),
-                price: x.priceFrom != null ? L.night(num(x.priceFrom)) : '',
-                newTab: L.newTab,
-                after: x.priceFrom != null ? ctx.trip.button(`s:${x.key}`) : '',
-              })).join('')}
-        </ul>
       </div>
     </section>` : ''}
 
@@ -483,11 +468,6 @@ async function boot() {
   );
   jump.classList.toggle('is-stuck', false);
   new IntersectionObserver(([e]) => jump.classList.toggle('is-stuck', e.intersectionRatio < 1), { threshold: 1, rootMargin: '-65px 0px 0px 0px' }).observe(jump);
-
-  // keep the current stop in view on the trail ruler
-  const rl = root.querySelector('.sp-ruler__list');
-  const cur = rl.querySelector('.is-current');
-  if (rl.scrollWidth > rl.clientWidth) rl.scrollLeft = cur.offsetLeft - rl.clientWidth / 2 + cur.offsetWidth / 2;
 
   // ---------- reveals ----------
   if (!reduced) {

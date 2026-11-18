@@ -367,6 +367,7 @@ html[lang='ar'] .ntc-divider__name strong {
 
 .ntc-card__inner {
   position: relative;
+  cursor: pointer;
   transform-origin: 50% 50%;
   will-change: transform;
 }
@@ -1438,3 +1439,8 @@ html[dir='rtl'] .ntc-card__cta .nt-flip, html[dir='rtl'] .ntc-card__go .nt-flip 
 /* Saudi riyal symbol before the amount (js/money.js), in the text colour, both languages */
 .sar-p { display: inline-flex; align-items: baseline; gap: 0.2em; white-space: nowrap; unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
 .sar { flex: none; width: 0.8em; height: 0.8em; fill: currentColor; }
+
+/* the whole stop card opens the stop page: name lifts with the photo */
+.ntc-card__name { transition: color 0.2s; }
+.ntc-card:hover .ntc-card__name { color: var(--nt-sand, currentColor); }
+.is-dragging .ntc-card__inner { cursor: grabbing; }

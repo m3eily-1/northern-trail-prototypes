@@ -97,11 +97,17 @@ export function initStops(root, ctx) {
     onFilter();
   });
 
-  // the photo opens the stop's own page; a drag that ends on a card does not count as a click
+  // the whole card opens the stop's own page; a drag that ends on a card does not count as a click
   let suppressClick = false;
   cards.forEach(({ el }) => {
-    el.querySelector('.ntc-card__photo').addEventListener('click', (e) => {
+    const link = el.querySelector('.ntc-card__photo');
+    link.addEventListener('click', (e) => {
       if (suppressClick) e.preventDefault();
+    });
+    el.addEventListener('click', (e) => {
+      if (suppressClick || e.target.closest('a')) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey) window.open(link.href, '_blank');
+      else location.href = link.href;
     });
   });
 
@@ -243,13 +249,16 @@ export function initStops(root, ctx) {
     moved = 0;
     startX = e.clientX;
     startLeft = viewport.scrollLeft;
-    viewport.setPointerCapture(e.pointerId);
   });
   viewport.addEventListener('pointermove', (e) => {
     if (!dragging) return;
     const dx = e.clientX - startX;
     moved = Math.max(moved, Math.abs(dx));
-    if (moved > 6) root.classList.add('is-dragging');
+    // capture only once it is a real drag, so a plain click still reaches the card link
+    if (moved > 6 && !viewport.hasPointerCapture(e.pointerId)) {
+      viewport.setPointerCapture(e.pointerId);
+      root.classList.add('is-dragging');
+    }
     viewport.scrollLeft = startLeft - dx;
   });
   const endDrag = (e) => {
